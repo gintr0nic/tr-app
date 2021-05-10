@@ -19,12 +19,13 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textAllCaps="true"
+        android:textStyle="bold"
         android:letterSpacing="0.25"
         android:text="@string/welcome"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_margin="20dp"
         android:id="@+id/viewPager"/>
 
