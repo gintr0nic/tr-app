@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "24970309961",
+    "project_id": "tr-app-20810",
+    "storage_bucket": "tr-app-20810.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24970309961:android:230187728869e65ce0aa98",
+        "android_client_info": {
+          "package_name": "im.gian.tr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24970309961-jcfriabirbno91r469ogaebk3uhaqvar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "im.gian.tr",
+            "certificate_hash": "da9774bc740740a083f24db7fd800e1484306bac"
+          }
+        },
+        {
+          "client_id": "24970309961-inrv4e3dlcus4hbp8ee46q36ov6vujrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5PSBhny4_RTDtn2CL_7aSLVwrMoJaNkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24970309961-inrv4e3dlcus4hbp8ee46q36ov6vujrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
