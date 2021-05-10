@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TR</string>
+    <string name="welcome">Benvenuto</string>
+    <string name="intro_button_next">Avanti</string>
+    <string name="intro_button_start">Inizia</string>
+    <string name="intro_text_1">TR è un’app che nasce dalla volontà di creare una rete di conoscenza tra consumatori finali, ristoratori, piccole e medie imprese di produzione di materie prime o prodotti trasformati che andranno a comporre il prodotto finale: la nostra esperienza culinaria.</string>
+    <string name="intro_text_2">Ti permette di selezionare i ristoranti in base all\'utilizzo di materie prime di qualità, conoscere i fornitori dei ristoranti così da poter sostenere le piccole e medie imprese del territorio, valorizzare il ristorante che utilizza materie prime di qualità.</string>
 </resources>
