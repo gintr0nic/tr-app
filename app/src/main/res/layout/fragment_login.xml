@@ -41,7 +41,7 @@
         android:textColor="@color/secondary"
         android:textStyle="bold"
         android:textAllCaps="false"
-        app:cornerRadius="13dp"
+        app:cornerRadius="20dp"
         app:icon="@drawable/ic_google"
         app:iconTint="@color/secondary"/>
 
@@ -56,7 +56,7 @@
         android:textColor="@color/secondary"
         android:textStyle="bold"
         android:textAllCaps="false"
-        app:cornerRadius="13dp"
+        app:cornerRadius="20dp"
         app:icon="@drawable/ic_facebook"
         app:iconTint="@color/secondary"/>
     <com.google.android.material.button.MaterialButton
@@ -70,7 +70,7 @@
         android:textColor="@color/primary"
         android:textStyle="bold"
         android:textAllCaps="false"
-        app:cornerRadius="13dp" />
+        app:cornerRadius="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

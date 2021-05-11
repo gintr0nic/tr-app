@@ -51,12 +51,12 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="70dp"
             android:layout_margin="20dp"
             android:backgroundTint="@color/secondary"
             android:text="@{context.getString(viewModel.buttonTextRes)}"
             android:textColor="@color/primary"
             android:textStyle="bold"
-            app:cornerRadius="13dp" />
+            app:cornerRadius="20dp" />
     </LinearLayout>
 </layout>
