@@ -1,5 +1,6 @@
 package im.gian.tr.intro
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import im.gian.tr.R
 import im.gian.tr.databinding.ActivityIntroBinding
+import im.gian.tr.login.LoginActivity
 import me.relex.circleindicator.CircleIndicator
 
 class IntroActivity : AppCompatActivity() {
@@ -45,7 +47,11 @@ class IntroActivity : AppCompatActivity() {
 
             when {
                 current < pages - 1 -> binding.viewPager.setCurrentItem(binding.viewPager.currentItem + 1, true)
-                else -> Toast.makeText(this, "New activity", Toast.LENGTH_SHORT).show()
+                else -> {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
 
