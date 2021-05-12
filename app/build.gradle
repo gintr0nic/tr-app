@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "im.gian.tr"
-        minSdkVersion 21
+        minSdkVersion 28 //TODO: lower to 21 and make separate v28 layot
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

@@ -13,6 +13,14 @@
     <string name="button_email_register">Usa l\'email</string>
     <string name="already_registered_question">Sei già registrato?</string>
     <string name="login"><u>Login</u></string>
+    <string name="login_to_continue">Fai il login per continuare</string>
+    <string name="register_to_continue">Registrati per continuare</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Ripeti password</string>
+    <string name="producer_question">Sei un ristoratore o produttore?</string>
+    <string name="producer_register"><u>Scopri come registarti</u></string>
 
 
 </resources>

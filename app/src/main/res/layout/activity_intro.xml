@@ -33,7 +33,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textAllCaps="true"
-            android:textStyle="bold"
+            android:textFontWeight="800"
             android:letterSpacing="0.25"
             android:text="@string/welcome"/>
 
@@ -56,7 +56,7 @@
             android:backgroundTint="@color/secondary"
             android:text="@{context.getString(viewModel.buttonTextRes)}"
             android:textColor="@color/primary"
-            android:textStyle="bold"
+            android:textFontWeight="600"
             app:cornerRadius="20dp" />
     </LinearLayout>
 </layout>
