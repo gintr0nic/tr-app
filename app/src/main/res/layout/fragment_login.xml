@@ -1,102 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="im.gian.tr.login.LoginFragment">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_launcher_foreground"
-        android:scaleX="1.5"
-        android:scaleY="1.5"/>
-
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_title" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/register"
-        android:textAlignment="center"
-        android:textFontWeight="600"
-        android:textSize="30sp"
-        android:textColor="@color/black"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonGoogleRegister"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/primary"
-        android:text="@string/button_google_register"
-        android:textColor="@color/secondary"
-        android:textFontWeight="700"
-        android:textAllCaps="false"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/ic_google"
-        app:iconTint="@color/secondary"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonFacebookRegister"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/primary"
-        android:text="@string/button_facebook_register"
-        android:textColor="@color/secondary"
-        android:textFontWeight="700"
-        android:textAllCaps="false"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/ic_facebook"
-        app:iconTint="@color/secondary"/>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonEmailRegister"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/secondary"
-        android:text="@string/button_email_register"
-        android:textColor="@color/primary"
-        android:textFontWeight="700"
-        android:textAllCaps="false"
-        app:cornerRadius="20dp" />
+    <data>
+        <variable
+            name="login"
+            type="im.gian.tr.login.LoginFragment" />
+    </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="13dp"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:gravity="bottom|center_horizontal">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleX="1.5"
+            android:scaleY="1.5"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_title" />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="@string/already_registered_question"
-            android:textFontWeight="500"
-            android:textSize="15sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textFontWeight="600"
+            android:textSize="30sp"
             android:textColor="@color/black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="@string/login"
-            android:textFontWeight="500"
-            android:textSize="15sp"
-            android:textColor="@color/primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGoogleRegister"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/primary"
+            android:text="@string/button_google_register"
+            android:textColor="@color/secondary"
+            android:textFontWeight="700"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_google"
+            app:iconTint="@color/secondary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonFacebookRegister"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/primary"
+            android:text="@string/button_facebook_register"
+            android:textColor="@color/secondary"
+            android:textFontWeight="700"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_facebook"
+            app:iconTint="@color/secondary"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonEmailRegister"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/secondary"
+            android:text="@string/button_email_register"
+            android:textColor="@color/primary"
+            android:textFontWeight="700"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp" />
+
+        <LinearLayout
+            android:id="@+id/buttonSignin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="13dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="bottom|center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/already_registered_question"
+                android:textFontWeight="500"
+                android:textSize="15sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/login"
+                android:textFontWeight="500"
+                android:textSize="15sp"
+                android:textColor="@color/primary" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</layout>
+

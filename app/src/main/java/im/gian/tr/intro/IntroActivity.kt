@@ -20,7 +20,7 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        val binding: ActivityIntroBinding = DataBindingUtil.setContentView(this,R.layout.activity_intro)
+        val binding = DataBindingUtil.setContentView<ActivityIntroBinding>(this,R.layout.activity_intro)
 
         binding.viewPager.adapter = IntroPagerAdapter(this)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
