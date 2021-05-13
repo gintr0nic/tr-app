@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
 
         binding.login = this
 
-        binding.buttonEmailRegister.setOnClickListener {
+        binding.buttonEmailSignup.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 

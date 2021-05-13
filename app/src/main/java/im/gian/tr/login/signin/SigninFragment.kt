@@ -1,5 +1,6 @@
 package im.gian.tr.login.signin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.google.firebase.auth.AuthResult
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentLoginBinding
 import im.gian.tr.databinding.FragmentSigninBinding
+import im.gian.tr.home.HomeActivity
 import im.gian.tr.login.signup.SignupViewModel
 
 class SigninFragment : Fragment() {
@@ -27,7 +29,12 @@ class SigninFragment : Fragment() {
 
         binding.signin = this
 
-        val onSigninCompleteListener = OnCompleteListener<AuthResult>() {
+        val onSigninCompleteListener = OnCompleteListener<AuthResult>() { task ->
+            if(task.isSuccessful) {
+                val intent = Intent(context, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
             binding.buttonSignin.revertAnimation()
         }
 
