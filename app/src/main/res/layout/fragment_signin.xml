@@ -102,6 +102,7 @@
             android:textAllCaps="false" />
 
         <LinearLayout
+            android:id="@+id/buttonSignup"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="20dp"

@@ -20,7 +20,11 @@
         android:id="@+id/signinFragment"
         android:name="im.gian.tr.login.signin.SigninFragment"
         android:label="fragment_signin"
-        tools:layout="@layout/fragment_signin" />
+        tools:layout="@layout/fragment_signin" >
+        <action
+            android:id="@+id/action_signinFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="im.gian.tr.login.signup.SignupFragment"

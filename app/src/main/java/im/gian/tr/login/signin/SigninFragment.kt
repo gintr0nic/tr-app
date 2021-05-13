@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import im.gian.tr.R
@@ -43,6 +44,10 @@ class SigninFragment : Fragment() {
         binding.buttonSignin.setOnClickListener {
             binding.buttonSignin.startAnimation()
             viewModel.signinUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.toString(), onCompleteListener = onSigninCompleteListener)
+        }
+
+        binding.buttonSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_signinFragment_to_signupFragment)
         }
 
         binding.viewModel = viewModel
