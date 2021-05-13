@@ -10,7 +10,7 @@ import com.google.firebase.ktx.Firebase
 class SignupViewModel : ViewModel() {
     private val auth = Firebase.auth
 
-    fun registerUser(email: String, password: String, onCompleteListener: OnCompleteListener<AuthResult>) {
+    fun signupUser(email: String, password: String, onCompleteListener: OnCompleteListener<AuthResult>) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(onCompleteListener)
     }
 }

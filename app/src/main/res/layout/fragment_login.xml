@@ -35,20 +35,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/register"
+            android:text="@string/signup"
             android:textAlignment="center"
             android:textFontWeight="600"
             android:textSize="30sp"
             android:textColor="@color/black"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonGoogleRegister"
+            android:id="@+id/buttonGoogleLogin"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@color/primary"
-            android:text="@string/button_google_register"
+            android:text="@string/button_google_login"
             android:textColor="@color/secondary"
             android:textFontWeight="700"
             android:textAllCaps="false"
@@ -57,13 +57,13 @@
             app:iconTint="@color/secondary"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonFacebookRegister"
+            android:id="@+id/buttonFacebookLogin"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@color/primary"
-            android:text="@string/button_facebook_register"
+            android:text="@string/button_facebook_login"
             android:textColor="@color/secondary"
             android:textFontWeight="700"
             android:textAllCaps="false"
@@ -71,13 +71,13 @@
             app:icon="@drawable/ic_facebook"
             app:iconTint="@color/secondary"/>
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonEmailRegister"
+            android:id="@+id/buttonEmailSignup"
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@color/secondary"
-            android:text="@string/button_email_register"
+            android:text="@string/button_email_login"
             android:textColor="@color/primary"
             android:textFontWeight="700"
             android:textAllCaps="false"
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/already_registered_question"
+                android:text="@string/already_signup_question"
                 android:textFontWeight="500"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>

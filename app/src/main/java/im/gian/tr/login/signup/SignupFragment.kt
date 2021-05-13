@@ -26,15 +26,15 @@ class SignupFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentSignupBinding>(
             inflater, R.layout.fragment_signup, container, false)
 
-        val onLoginCompleteListener = OnCompleteListener<AuthResult>() {
-            binding.buttonRegister.revertAnimation()
+        val onSignupCompleteListener = OnCompleteListener<AuthResult>() {
+            binding.buttonSignup.revertAnimation()
         }
 
         binding.signup = this
 
-        binding.buttonRegister.setOnClickListener {
-            binding.buttonRegister.startAnimation()
-            viewModel.registerUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.toString(), onCompleteListener = onLoginCompleteListener)
+        binding.buttonSignup.setOnClickListener {
+            binding.buttonSignup.startAnimation()
+            viewModel.signupUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.toString(), onCompleteListener = onSignupCompleteListener)
         }
 
         binding.viewModel = viewModel

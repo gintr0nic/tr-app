@@ -6,6 +6,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="im.gian.tr.login.signin.SigninViewModel"/>
+        <variable
             name="signin"
             type="im.gian.tr.login.signin.SigninFragment" />
     </data>
@@ -35,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:text="@string/register_to_continue"
+            android:text="@string/login_to_continue"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textFontWeight="500"/>
@@ -56,6 +59,7 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary"
@@ -78,13 +82,15 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/buttonSignin"
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_margin="20dp"
@@ -93,9 +99,7 @@
             android:text="@string/login"
             android:textColor="@color/secondary"
             android:textFontWeight="700"
-            android:textAllCaps="false"
-            app:cornerRadius="20dp"
-            app:iconTint="@color/secondary"/>
+            android:textAllCaps="false" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="0.5"
-                android:text="@string/register_underline"
+                android:text="@string/signup_underline"
                 android:textFontWeight="500"
                 android:textSize="15sp"
                 android:textColor="@color/primary"

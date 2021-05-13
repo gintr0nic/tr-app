@@ -6,11 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentLoginBinding
 import im.gian.tr.databinding.FragmentSigninBinding
+import im.gian.tr.login.signup.SignupViewModel
 
 class SigninFragment : Fragment() {
+    val viewModel : SigninViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,6 +26,19 @@ class SigninFragment : Fragment() {
             inflater, R.layout.fragment_signin, container, false)
 
         binding.signin = this
+
+        val onSigninCompleteListener = OnCompleteListener<AuthResult>() {
+            binding.buttonSignin.revertAnimation()
+        }
+
+        binding.signin = this
+
+        binding.buttonSignin.setOnClickListener {
+            binding.buttonSignin.startAnimation()
+            viewModel.signinUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.toString(), onCompleteListener = onSigninCompleteListener)
+        }
+
+        binding.viewModel = viewModel
 
         return binding.root
     }
