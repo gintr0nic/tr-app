@@ -50,6 +50,10 @@ dependencies {
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    //Custom views
+    implementation 'br.com.simplepass:loading-button-android:2.2.0'
 
     //Other
     implementation 'com.google.android.material:material:1.4.0-beta01'

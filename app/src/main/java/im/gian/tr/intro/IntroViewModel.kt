@@ -10,7 +10,7 @@ class IntroViewModel : ViewModel() {
     val buttonTextRes: LiveData<Int>
         get() = _buttonTextRes
 
-    fun setButtonRes(step: Int){ //OK
+    fun setButtonRes(step: Int){
         when(step){
             0 -> _buttonTextRes.value = R.string.intro_button_next
             1 -> _buttonTextRes.value = R.string.intro_button_start
