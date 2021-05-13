@@ -1,5 +1,6 @@
 package im.gian.tr.login.signup
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.OnCompleteListener
