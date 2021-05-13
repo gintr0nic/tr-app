@@ -99,7 +99,12 @@
             android:text="@string/login"
             android:textColor="@color/secondary"
             android:textFontWeight="700"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            app:spinning_bar_color="@color/secondary"
+            app:spinning_bar_padding="20dp"
+            app:spinning_bar_width="3dp"
+            app:initialCornerAngle="50dp"
+            app:finalCornerAngle="50dp"/>
 
         <LinearLayout
             android:id="@+id/buttonSignup"

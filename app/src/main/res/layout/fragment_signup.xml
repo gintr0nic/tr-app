@@ -125,7 +125,9 @@
         android:textAllCaps="false"
         app:spinning_bar_color="@color/secondary"
         app:spinning_bar_padding="20dp"
-        app:spinning_bar_width="3dp" />
+        app:spinning_bar_width="3dp"
+        app:initialCornerAngle="50dp"
+        app:finalCornerAngle="50dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
