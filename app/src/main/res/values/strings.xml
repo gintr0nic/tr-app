@@ -15,7 +15,8 @@
     <string name="button_facebook_register">Continua con Facebook</string>
     <string name="button_email_register">Usa l\'email</string>
     <string name="already_registered_question">Sei già registrato?</string>
-    <string name="login"><u>Login</u></string>
+    <string name="login">Login</string>
+    <string name="login_underline"><u>Login</u></string>
     <string name="login_to_continue">Fai il login per continuare</string>
     <string name="register_to_continue">Registrati per continuare</string>
     <string name="email">Email</string>
