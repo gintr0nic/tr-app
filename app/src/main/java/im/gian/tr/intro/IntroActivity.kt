@@ -18,7 +18,6 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
 
         val binding = DataBindingUtil.setContentView<ActivityIntroBinding>(this,R.layout.activity_intro)
 

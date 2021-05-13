@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="im.gian.tr.login.SigninFragment">
+    tools:context="im.gian.tr.login.signin.SigninFragment">
 
     <data>
         <variable
             name="signin"
-            type="im.gian.tr.login.SigninFragment" />
+            type="im.gian.tr.login.signin.SigninFragment" />
     </data>
 
     <LinearLayout

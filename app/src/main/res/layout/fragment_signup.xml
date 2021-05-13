@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="im.gian.tr.login.SignupFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
+            name="viewModel"
+            type="im.gian.tr.login.signup.SignupViewModel"/>
+        <variable
             name="signup"
-            type="im.gian.tr.login.SignupFragment" />
+            type="im.gian.tr.login.signup.SignupFragment" />
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context="im.gian.tr.login.signup.SignupFragment">
 
 
     <ImageView
