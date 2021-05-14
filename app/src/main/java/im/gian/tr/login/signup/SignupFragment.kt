@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.ktx.auth
@@ -43,6 +45,16 @@ class SignupFragment : Fragment() {
             binding.buttonSignup.startAnimation()
             //viewModel.signupUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSignupCompleteListener)
         }
+
+        binding.buttonSignin.setOnClickListener {
+            findNavController().navigate(R.id.action_signupFragment_to_signinFragment)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+            }
+        })
 
         binding.viewModel = viewModel
 
