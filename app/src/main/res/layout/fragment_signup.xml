@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="signupViewModel"
             type="im.gian.tr.login.signup.SignupViewModel"/>
         <variable
             name="signup"

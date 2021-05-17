@@ -20,7 +20,7 @@ import im.gian.tr.databinding.FragmentSignupBinding
 import im.gian.tr.home.HomeActivity
 
 class SignupFragment : Fragment() {
-    val viewModel :SignupViewModel by viewModels()
+    val signupViewModel :SignupViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +30,9 @@ class SignupFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentSignupBinding>(
             inflater, R.layout.fragment_signup, container, false)
 
+        binding.signup = this
+        binding.signupViewModel = signupViewModel
+
         val onSignupCompleteListener = OnCompleteListener<AuthResult>() { task ->
             if(task.isSuccessful) {
                 val intent = Intent(context, HomeActivity::class.java)
@@ -38,8 +41,6 @@ class SignupFragment : Fragment() {
 
             binding.buttonSignup.revertAnimation()
         }
-
-        binding.signup = this
 
         binding.buttonSignup.setOnClickListener {
             binding.buttonSignup.startAnimation()
@@ -55,8 +56,6 @@ class SignupFragment : Fragment() {
                 findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
             }
         })
-
-        binding.viewModel = viewModel
 
         return binding.root
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="viewModel"
+            name="introViewModel"
             type="im.gian.tr.intro.IntroViewModel"/>
     </data>
     <LinearLayout

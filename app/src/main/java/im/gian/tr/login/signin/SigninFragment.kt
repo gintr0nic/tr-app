@@ -19,7 +19,7 @@ import im.gian.tr.home.HomeActivity
 import im.gian.tr.login.signup.SignupViewModel
 
 class SigninFragment : Fragment() {
-    val viewModel : SigninViewModel by viewModels()
+    val signinViewModel : SigninViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +30,7 @@ class SigninFragment : Fragment() {
             inflater, R.layout.fragment_signin, container, false)
 
         binding.signin = this
+        binding.signinViewModel = signinViewModel
 
         val onSigninCompleteListener = OnCompleteListener<AuthResult>() { task ->
             if(task.isSuccessful) {
@@ -39,8 +40,6 @@ class SigninFragment : Fragment() {
 
             binding.buttonSignin.revertAnimation()
         }
-
-        binding.signin = this
 
         binding.buttonSignin.setOnClickListener {
             binding.buttonSignin.startAnimation()
@@ -56,8 +55,6 @@ class SigninFragment : Fragment() {
                 findNavController().navigate(R.id.action_signinFragment_to_loginFragment)
             }
         })
-
-        binding.viewModel = viewModel
 
         return binding.root
     }

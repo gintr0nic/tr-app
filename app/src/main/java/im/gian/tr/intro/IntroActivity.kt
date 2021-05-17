@@ -14,12 +14,15 @@ import me.relex.circleindicator.CircleIndicator
 
 class IntroActivity : AppCompatActivity() {
 
-    val viewModel: IntroViewModel by viewModels()
+    val introViewModel: IntroViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding = DataBindingUtil.setContentView<ActivityIntroBinding>(this,R.layout.activity_intro)
+
+        binding.introViewModel = introViewModel
+        binding.lifecycleOwner = this
 
         binding.viewPager.adapter = IntroPagerAdapter(this)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
@@ -36,7 +39,7 @@ class IntroActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                viewModel.setButtonRes(position)
+                introViewModel.setButtonRes(position)
             }
         })
 
@@ -55,8 +58,5 @@ class IntroActivity : AppCompatActivity() {
         }
 
         binding.circleIndicator.setViewPager(binding.viewPager)
-
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
     }
 }
