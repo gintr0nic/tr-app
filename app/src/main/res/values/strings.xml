@@ -26,5 +26,8 @@
     <string name="producer_question">Sei un ristoratore o produttore?</string>
     <string name="producer_signup"><u>Scopri come registarti</u></string>
 
+    <string name="home">Home</string>
+    <string name="map">Mappa</string>
+    <string name="saved">Salvati</string>
 
 </resources>

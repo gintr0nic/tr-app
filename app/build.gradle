@@ -54,6 +54,7 @@ dependencies {
 
     //Custom views
     implementation 'br.com.simplepass:loading-button-android:2.2.0'
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
 
     //Other
     implementation 'com.google.android.material:material:1.4.0-beta01'

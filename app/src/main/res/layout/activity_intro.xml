@@ -54,7 +54,7 @@
             android:layout_height="70dp"
             android:layout_margin="20dp"
             android:backgroundTint="@color/secondary"
-            android:text="@{context.getString(viewModel.buttonTextRes)}"
+            android:text="@{context.getString(introViewModel.buttonTextRes)}"
             android:textColor="@color/primary"
             android:textFontWeight="600"
             app:cornerRadius="20dp" />

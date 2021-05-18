@@ -43,7 +43,7 @@ class SigninFragment : Fragment() {
 
         binding.buttonSignin.setOnClickListener {
             binding.buttonSignin.startAnimation()
-            //viewModel.signinUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSigninCompleteListener)
+            signinViewModel.signinUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSigninCompleteListener)
         }
 
         binding.buttonSignup.setOnClickListener {

@@ -44,7 +44,7 @@ class SignupFragment : Fragment() {
 
         binding.buttonSignup.setOnClickListener {
             binding.buttonSignup.startAnimation()
-            //viewModel.signupUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSignupCompleteListener)
+            signupViewModel.signupUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSignupCompleteListener)
         }
 
         binding.buttonSignin.setOnClickListener {
