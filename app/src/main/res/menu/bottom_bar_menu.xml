@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeFragment"
         android:title="@string/home"
         android:icon="@drawable/ic_home" />
     <item
-        android:id="@+id/map"
+        android:id="@+id/mapFragment"
         android:title="@string/map"
         android:icon="@drawable/ic_map" />
     <item
-        android:id="@+id/saved"
+        android:id="@+id/savedFragment"
         android:title="@string/saved"
         android:icon="@drawable/ic_saved" />
 </menu>

@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_home"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="im.gian.tr.home.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="im.gian.tr.home.fragments.MapFragment"
+        android:label="@string/map"
+        tools:layout="@layout/fragment_map" >
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="im.gian.tr.home.fragments.SavedFragment"
+        android:label="@string/saved"
+        tools:layout="@layout/fragment_saved" >
+    </fragment>
 </navigation>

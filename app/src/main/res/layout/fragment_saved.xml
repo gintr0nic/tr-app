@@ -8,8 +8,8 @@
             name="homeViewModel"
             type="im.gian.tr.home.HomeViewModel" />
         <variable
-            name="home"
-            type="im.gian.tr.home.fragments.HomeFragment" />
+            name="saved"
+            type="im.gian.tr.home.fragments.SavedFragment" />
     </data>
 
     <LinearLayout
@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="home"/>
+            android:text="saved"/>
 
     </LinearLayout>
 </layout>
