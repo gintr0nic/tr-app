@@ -24,6 +24,8 @@ class HomeActivity : AppCompatActivity() {
         binding.homeViewModel = homeViewModel
         binding.lifecycleOwner = this
 
+        homeViewModel.setTest("oleeeeeeee")
+
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.bottom_bar_menu)
         binding.bottomBar.setupWithNavController(popupMenu.menu, navController)

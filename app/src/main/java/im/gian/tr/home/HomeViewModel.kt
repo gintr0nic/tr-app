@@ -13,4 +13,12 @@ class HomeViewModel : ViewModel() {
     fun setTitleTextRes(textRes: Int){
         _titleTextRes.value = textRes
     }
+
+    private val _test = MutableLiveData<String>()
+    val test: LiveData<String>
+        get() = _test
+
+    fun setTest(value: String){
+        _test.value = value
+    }
 }

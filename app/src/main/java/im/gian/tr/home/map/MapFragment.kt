@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentHomeBinding
 import im.gian.tr.databinding.FragmentMapBinding
@@ -15,8 +16,6 @@ import im.gian.tr.home.HomeViewModel
 import im.gian.tr.intro.IntroViewModel
 
 class MapFragment : Fragment() {
-    val homeViewModel: HomeViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,6 +23,8 @@ class MapFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentMapBinding>(
             inflater, R.layout.fragment_map, container, false)
+
+        val homeViewModel: HomeViewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
         binding.map = this
         binding.homeViewModel = homeViewModel
