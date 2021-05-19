@@ -29,8 +29,6 @@ class SavedFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
 
-
-
         return binding.root
     }
 }

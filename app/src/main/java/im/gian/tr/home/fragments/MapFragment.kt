@@ -29,8 +29,6 @@ class MapFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
 
-
-
         return binding.root
     }
 }
