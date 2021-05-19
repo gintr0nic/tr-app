@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentHomeBinding
-import im.gian.tr.databinding.FragmentSigninBinding
 import im.gian.tr.home.HomeViewModel
-import im.gian.tr.intro.IntroViewModel
 
 class HomeFragment : Fragment() {
     override fun onCreateView(
@@ -25,8 +23,13 @@ class HomeFragment : Fragment() {
 
         val homeViewModel: HomeViewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
+        val rests = listOf(Restaurant("Ristorante 1"), Restaurant("Ristorante 1"), Restaurant("Ristorante 1"), Restaurant("Ristorante 1"), Restaurant("Ristorante 1"), Restaurant("Ristorante 1"))
+
         binding.home = this
         binding.homeViewModel = homeViewModel
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView.adapter = RestaurantCardAdapter(rests)
 
 
         return binding.root
