@@ -9,7 +9,7 @@
             type="im.gian.tr.home.HomeViewModel" />
         <variable
             name="home"
-            type="im.gian.tr.home.fragments.HomeFragment" />
+            type="im.gian.tr.home.home.HomeFragment" />
     </data>
 
     <LinearLayout

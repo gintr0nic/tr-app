@@ -1,4 +1,4 @@
-package im.gian.tr.home.fragments
+package im.gian.tr.home.saved
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentHomeBinding
+import im.gian.tr.databinding.FragmentSavedBinding
 import im.gian.tr.databinding.FragmentSigninBinding
 import im.gian.tr.home.HomeViewModel
 import im.gian.tr.intro.IntroViewModel
 
-class HomeFragment : Fragment() {
+class SavedFragment : Fragment() {
     val homeViewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -21,10 +22,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
-            inflater, R.layout.fragment_home, container, false)
+        val binding = DataBindingUtil.inflate<FragmentSavedBinding>(
+            inflater, R.layout.fragment_saved, container, false)
 
-        binding.home = this
+        binding.saved = this
         binding.homeViewModel = homeViewModel
 
 

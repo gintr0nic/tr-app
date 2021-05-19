@@ -1,4 +1,4 @@
-package im.gian.tr.home.fragments
+package im.gian.tr.home.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentHomeBinding
-import im.gian.tr.databinding.FragmentMapBinding
 import im.gian.tr.databinding.FragmentSigninBinding
 import im.gian.tr.home.HomeViewModel
 import im.gian.tr.intro.IntroViewModel
 
-class MapFragment : Fragment() {
+class HomeFragment : Fragment() {
     val homeViewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -22,10 +21,10 @@ class MapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentMapBinding>(
-            inflater, R.layout.fragment_map, container, false)
+        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
+            inflater, R.layout.fragment_home, container, false)
 
-        binding.map = this
+        binding.home = this
         binding.homeViewModel = homeViewModel
 
 

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="im.gian.tr.home.fragments.HomeFragment"
+        android:name="im.gian.tr.home.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="im.gian.tr.home.fragments.MapFragment"
+        android:name="im.gian.tr.home.map.MapFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" >
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
-        android:name="im.gian.tr.home.fragments.SavedFragment"
+        android:name="im.gian.tr.home.saved.SavedFragment"
         android:label="@string/saved"
         tools:layout="@layout/fragment_saved" >
     </fragment>

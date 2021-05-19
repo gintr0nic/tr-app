@@ -9,7 +9,7 @@
             type="im.gian.tr.home.HomeViewModel" />
         <variable
             name="map"
-            type="im.gian.tr.home.fragments.MapFragment" />
+            type="im.gian.tr.home.map.MapFragment" />
     </data>
 
     <LinearLayout
