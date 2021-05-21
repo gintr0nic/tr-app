@@ -3,13 +3,10 @@ package im.gian.tr.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
-import im.gian.tr.home.home.Restaurant
+import im.gian.tr.home.model.Restaurant
 
 class HomeViewModel : ViewModel() {
     private val db = Firebase.firestore

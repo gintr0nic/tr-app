@@ -1,7 +1,6 @@
 package im.gian.tr.home.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.firestore.QuerySnapshot
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentHomeBinding
 import im.gian.tr.home.HomeViewModel
+import im.gian.tr.home.model.Restaurant
 
 class HomeFragment : Fragment() {
     override fun onCreateView(

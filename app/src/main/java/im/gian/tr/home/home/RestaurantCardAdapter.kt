@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import im.gian.tr.R
+import im.gian.tr.home.model.Restaurant
 
 class RestaurantCardAdapter(private var restaurantList: List<Restaurant>) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
     class RestaurantCardViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
