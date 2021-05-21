@@ -37,8 +37,12 @@ class HomeFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerView.adapter = RestaurantCardAdapter(rests)
 
+        binding.recyclerView1.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView1.adapter = RestaurantCardAdapter(rests)
+
         val restaurantsObserver = Observer<List<Restaurant>> { value ->
             binding.recyclerView.adapter = RestaurantCardAdapter(value)
+            binding.recyclerView1.adapter = RestaurantCardAdapter(value)
         }
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 
