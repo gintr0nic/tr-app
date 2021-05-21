@@ -31,8 +31,6 @@ class SavedFragment : Fragment() {
         binding.saved = this
         binding.homeViewModel = homeViewModel
 
-        Log.d("saved", homeViewModel.test.value.toString())
-
 
         return binding.root
     }

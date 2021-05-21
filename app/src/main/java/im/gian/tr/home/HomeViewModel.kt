@@ -3,9 +3,17 @@ package im.gian.tr.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
+import im.gian.tr.home.home.Restaurant
 
 class HomeViewModel : ViewModel() {
+    private val db = Firebase.firestore
+
     private val _titleTextRes = MutableLiveData<Int>(R.string.home)
     val titleTextRes: LiveData<Int>
         get() = _titleTextRes
@@ -14,11 +22,13 @@ class HomeViewModel : ViewModel() {
         _titleTextRes.value = textRes
     }
 
-    private val _test = MutableLiveData<String>()
-    val test: LiveData<String>
-        get() = _test
+    private val _restaurants = MutableLiveData<List<Restaurant>>()
+    val restaurants: LiveData<List<Restaurant>>
+        get() = _restaurants
 
-    fun setTest(value: String){
-        _test.value = value
+    fun fetchRestaurants() {
+        db.collection("restaurants").get().addOnSuccessListener {
+            _restaurants.value = it.toObjects(Restaurant::class.java)
+        }
     }
 }

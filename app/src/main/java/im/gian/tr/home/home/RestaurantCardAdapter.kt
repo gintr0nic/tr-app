@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import im.gian.tr.R
 
-class RestaurantCardAdapter(private val restaurantList: List<Restaurant>) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+class RestaurantCardAdapter(private var restaurantList: List<Restaurant>) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
     class RestaurantCardViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
         val textViewRestaurantName: TextView = row.findViewById(R.id.textViewRestaurantName)
+        val textViewRestaurantCity: TextView = row.findViewById(R.id.textViewRestaurantCity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantCardViewHolder {
@@ -20,7 +21,14 @@ class RestaurantCardAdapter(private val restaurantList: List<Restaurant>) : Recy
 
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
         holder.textViewRestaurantName.text = restaurantList[position].name
+        holder.textViewRestaurantCity.text = restaurantList[position].city
     }
 
     override fun getItemCount(): Int = restaurantList.size
+
+    fun notifyChanged(new: List<Restaurant>){
+        restaurantList = new
+
+        notifyDataSetChanged()
+    }
 }

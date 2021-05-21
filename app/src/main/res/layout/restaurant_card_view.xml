@@ -2,7 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
@@ -30,16 +32,15 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.3"
                 android:gravity="center_vertical"
-                android:text="Pizzeria 0881"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
 
             <TextView
+                android:id="@+id/textViewRestaurantCity"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="0.3"
                 android:gravity="center_vertical"
-                android:text="Foggia"
                 android:textSize="15sp"/>
 
             <TextView
@@ -47,7 +48,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.3"
                 android:gravity="center_vertical"
-                android:text="150km"
                 android:textSize="15sp"/>
 
 
