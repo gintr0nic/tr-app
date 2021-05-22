@@ -25,22 +25,20 @@ class HomeFragment : Fragment() {
 
         val homeViewModel: HomeViewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
-        val rests = mutableListOf(Restaurant("Caricamento...","Caricamento..."))
-
         binding.home = this
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerView.adapter = RestaurantCardAdapter(rests, homeViewModel.userLocation.value)
+        binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
 
         binding.recyclerView1.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerView1.adapter = RestaurantCardAdapter(rests, homeViewModel.userLocation.value)
+        binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
 
-        val restaurantsObserver = Observer<List<Restaurant>> { value ->
-            binding.recyclerView.adapter = RestaurantCardAdapter(value, homeViewModel.userLocation.value)
-            binding.recyclerView1.adapter = RestaurantCardAdapter(value, homeViewModel.userLocation.value)
+        val restaurantsObserver = Observer<List<Restaurant>> {
+            binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
+            binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
         }
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 

@@ -28,7 +28,7 @@ class HomeViewModel : ViewModel() {
         _userLocation.value = location
     }
 
-    private val _restaurants = MutableLiveData<List<Restaurant>>()
+    private val _restaurants = MutableLiveData<List<Restaurant>>(listOf(Restaurant("Caricamento...","Caricamento...")))
     val restaurants: LiveData<List<Restaurant>>
         get() = _restaurants
 
