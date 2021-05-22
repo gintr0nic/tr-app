@@ -38,10 +38,10 @@ class MapFragment : Fragment() {
          */
 
         homeViewModel.restaurants.value?.forEach {
-            googleMap.addMarker(MarkerOptions().position(LatLng(it.position.latitude,it.position.longitude)))
+            googleMap.addMarker(MarkerOptions().position(LatLng(it.location.latitude,it.location.longitude)))
         }
 
-        val newPos = homeViewModel.restaurants.value?.get(0)?.position
+        val newPos = homeViewModel.restaurants.value?.get(0)?.location
         if (newPos != null) {
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(newPos.latitude,newPos.longitude)))
         }

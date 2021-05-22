@@ -27,21 +27,8 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>, privat
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
         holder.textViewRestaurantName.text = restaurantList[position].name
         holder.textViewRestaurantCity.text = restaurantList[position].city
+        holder.textViewRestaurantDistance.text = "${restaurantList[position].getDistance(userLocation)} km"
 
-        if(userLocation == null){
-            holder.textViewRestaurantDistance.text = ""
-        }else{
-            val restaurantLocation = Location("")
-            restaurantLocation.let {
-                it.latitude = restaurantList[position].position.latitude
-                it.longitude = restaurantList[position].position.longitude
-            }
-            Log.d("loc1", userLocation.toString())
-            Log.d("loc2", restaurantLocation.toString())
-
-            val distance = (userLocation!!.distanceTo(restaurantLocation)/1000).toBigDecimal().setScale(1, RoundingMode.UP).toFloat()
-            holder.textViewRestaurantDistance.text = "$distance km"
-        }
     }
 
     override fun getItemCount(): Int = restaurantList.size
