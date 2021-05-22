@@ -11,7 +11,17 @@ import im.gian.tr.R
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private var userLocation: Location?) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+    var list = restaurantList
+
+    init {
+        if(sortByDistance){
+            val sortedRestaurantList = restaurantList?.toMutableList()
+            sortedRestaurantList?.sortBy { it.getDistance(userLocation) }
+            list = sortedRestaurantList
+        }
+    }
+
     class RestaurantCardViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
         val textViewRestaurantName: TextView = row.findViewById(R.id.textViewRestaurantName)
         val textViewRestaurantCity: TextView = row.findViewById(R.id.textViewRestaurantCity)
@@ -25,10 +35,10 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
     }
 
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
-        if(restaurantList != null){
-            holder.textViewRestaurantName.text = restaurantList!![position].name
-            holder.textViewRestaurantCity.text = restaurantList!![position].city
-            holder.textViewRestaurantDistance.text = "${restaurantList!![position].getDistance(userLocation)} km"
+        if(list != null){
+            holder.textViewRestaurantName.text = list!![position].name
+            holder.textViewRestaurantCity.text = list!![position].city
+            holder.textViewRestaurantDistance.text = "${list!![position].getDistance(userLocation)} km"
         }
 
     }

@@ -31,14 +31,14 @@ class HomeFragment : Fragment() {
 
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
+        binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value, false)
 
         binding.recyclerView1.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
+        binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value, true)
 
         val restaurantsObserver = Observer<List<Restaurant>> {
-            binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
-            binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value)
+            binding.recyclerView.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value, false)
+            binding.recyclerView1.adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.userLocation.value, true)
         }
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 
