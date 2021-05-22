@@ -1,5 +1,6 @@
 package im.gian.tr.home
 
+import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,14 @@ class HomeViewModel : ViewModel() {
         _titleTextRes.value = textRes
     }
 
+    private val _userLocation = MutableLiveData<Location>()
+    val userLocation: LiveData<Location>
+        get() = _userLocation
+
+    fun setUserLocation(location: Location){
+        _userLocation.value = location
+    }
+
     private val _restaurants = MutableLiveData<List<Restaurant>>()
     val restaurants: LiveData<List<Restaurant>>
         get() = _restaurants
@@ -28,4 +37,5 @@ class HomeViewModel : ViewModel() {
             _restaurants.value = it.toObjects(Restaurant::class.java)
         }
     }
+
 }
