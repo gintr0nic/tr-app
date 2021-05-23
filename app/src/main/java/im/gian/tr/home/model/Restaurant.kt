@@ -7,7 +7,8 @@ import java.math.RoundingMode
 data class Restaurant(
     val name: String = "",
     val city: String = "",
-    val location: GeoPoint = GeoPoint(0.0,0.0)
+    val location: GeoPoint = GeoPoint(0.0,0.0),
+    var id: String = ""
 ){
     fun getDistance(userLocation: Location?): Float?{
         if(userLocation == null) return null

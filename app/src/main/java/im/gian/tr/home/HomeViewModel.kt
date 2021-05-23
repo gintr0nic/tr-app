@@ -39,9 +39,21 @@ class HomeViewModel : ViewModel() {
         get() = _restaurants
 
     fun fetchRestaurants() {
+        val restaurantList = mutableListOf<Restaurant>()
+
         db.collection("restaurants").get().addOnSuccessListener {
-            _restaurants.value = it.toObjects(Restaurant::class.java)
+            it.documents.forEachIndexed { index, document ->
+                val restaurant = document.toObject(Restaurant::class.java)!!
+                restaurant.id = document.id
+                restaurantList.add(restaurant)
+                if(index == it.documents.size - 1)
+                    _restaurants.value = restaurantList
+            }
         }
+
+        /*db.collection("restaurants").get().addOnSuccessListener {
+            _restaurants.value = it.toObjects(Restaurant::class.java)
+        }*/
     }
 
     //Saved
