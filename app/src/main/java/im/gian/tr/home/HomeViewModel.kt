@@ -68,7 +68,9 @@ class HomeViewModel : ViewModel() {
             val savedPath: List<String> = it.get("saved") as List<String>
             savedPath.forEachIndexed { index, path ->
                 db.document(path).get().addOnSuccessListener { document ->
-                    savedList.add(document.toObject(Restaurant::class.java)!!)
+                    val restaurant = document.toObject(Restaurant::class.java)!!
+                    restaurant.id = document.id
+                    savedList.add(restaurant)
                     if(index == savedPath.size - 1)
                         _saved.value = savedList
                 }
