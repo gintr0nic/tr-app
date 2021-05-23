@@ -37,10 +37,10 @@ class SavedFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
         binding.recyclerViewSaved.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerViewSaved.adapter = RestaurantCardAdapter(homeViewModel.saved.value, homeViewModel.userLocation.value, false)
+        binding.recyclerViewSaved.adapter = SavedCardAdapter(homeViewModel.saved.value)
 
         val savedObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewSaved.adapter = RestaurantCardAdapter(homeViewModel.saved.value, homeViewModel.userLocation.value, false)
+            binding.recyclerViewSaved.adapter = SavedCardAdapter(homeViewModel.saved.value)
         }
         homeViewModel.saved.observe(viewLifecycleOwner, savedObserver)
 
