@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
@@ -46,6 +47,9 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
             holder.textViewRestaurantDistance.text = "${list!![position].getDistance(userLocation)} km"
 
             val imageReference = storage.reference.child("propics/${list!![position].id}.jpg")
+            imageReference.downloadUrl.addOnSuccessListener {
+                Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
+            }
         }
 
     }
