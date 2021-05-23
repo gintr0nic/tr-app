@@ -50,10 +50,6 @@ class HomeViewModel : ViewModel() {
                     _restaurants.value = restaurantList
             }
         }
-
-        /*db.collection("restaurants").get().addOnSuccessListener {
-            _restaurants.value = it.toObjects(Restaurant::class.java)
-        }*/
     }
 
     //Saved

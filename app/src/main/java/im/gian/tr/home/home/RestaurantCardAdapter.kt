@@ -5,18 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
-    var storage = Firebase.storage
+class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private val savedList: MutableList<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+    private val storage = Firebase.storage
+    private val db = Firebase.firestore
+    private val user = Firebase.auth
     var list = restaurantList
 
     init {
@@ -32,6 +37,7 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
         val textViewRestaurantCity: TextView = row.findViewById(R.id.textViewRestaurantCity)
         val textViewRestaurantDistance: TextView = row.findViewById(R.id.textViewRestaurantDistance)
         val imageViewRestaurant: ImageView = row.findViewById(R.id.imageViewRestaurant)
+        val checkBoxRestaurant: CheckBox = row.findViewById(R.id.checkboxRestaurant)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantCardViewHolder {
@@ -45,6 +51,9 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
             holder.textViewRestaurantName.text = list!![position].name
             holder.textViewRestaurantCity.text = list!![position].city
             holder.textViewRestaurantDistance.text = "${list!![position].getDistance(userLocation)} km"
+
+            if(list!![position] in savedList!!)
+                holder.checkBoxRestaurant.isChecked = true
 
             val imageReference = storage.reference.child("propics/${list!![position].id}.jpg")
             imageReference.downloadUrl.addOnSuccessListener {

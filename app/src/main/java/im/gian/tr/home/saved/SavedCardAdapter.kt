@@ -13,7 +13,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
 import im.gian.tr.home.model.Restaurant
-import java.math.RoundingMode
 
 class SavedCardAdapter(private var savedList: List<Restaurant>?) : RecyclerView.Adapter<SavedCardAdapter.SavedCardViewHolder>() {
     var storage = Firebase.storage
@@ -42,5 +41,4 @@ class SavedCardAdapter(private var savedList: List<Restaurant>?) : RecyclerView.
     }
 
     override fun getItemCount(): Int = savedList!!.size
-
 }
