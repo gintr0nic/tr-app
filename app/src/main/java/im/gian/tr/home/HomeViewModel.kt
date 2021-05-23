@@ -45,14 +45,22 @@ class HomeViewModel : ViewModel() {
     }
 
     //Saved
-    private val _saved = MutableLiveData<List<Restaurant>>(listOf(Restaurant("Caricamento...","Caricamento...")))
-    val saved: LiveData<List<Restaurant>>
+    private val _saved = MutableLiveData<MutableList<Restaurant>>(mutableListOf(Restaurant("Caricamento...","Caricamento...")))
+    val saved: LiveData<MutableList<Restaurant>>
         get() = _saved
 
     fun fetchSaved() {
+        val savedList = mutableListOf<Restaurant>()
+
         db.collection("users").document(user.uid!!).get().addOnSuccessListener {
-            val saved: List<String> = it.get("saved") as List<String>
-            Log.d("saved", saved.toString())
+            val savedPath: List<String> = it.get("saved") as List<String>
+            savedPath.forEachIndexed { index, path ->
+                db.document(path).get().addOnSuccessListener { document ->
+                    savedList.add(document.toObject(Restaurant::class.java)!!)
+                    if(index == savedPath.size - 1)
+                        _saved.value = savedList
+                }
+            }
         }
     }
 

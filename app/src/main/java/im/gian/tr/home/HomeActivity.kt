@@ -48,6 +48,7 @@ class HomeActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
+                    Log.d("location",location.toString())
                     if (location != null) {
                         homeViewModel.setUserLocation(location)
                     }
