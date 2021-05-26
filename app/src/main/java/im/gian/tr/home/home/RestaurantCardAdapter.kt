@@ -20,15 +20,14 @@ import java.math.RoundingMode
 
 class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private val savedList: MutableList<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
     private val storage = Firebase.storage
-    private val db = Firebase.firestore
-    private val user = Firebase.auth
-    var list = restaurantList
+    //private val db = Firebase.firestore
+    //private val user = Firebase.auth
 
     init {
         if(sortByDistance){
             val sortedRestaurantList = restaurantList?.toMutableList()
             sortedRestaurantList?.sortBy { it.getDistance(userLocation) }
-            list = sortedRestaurantList
+            restaurantList = sortedRestaurantList
         }
     }
 
@@ -47,15 +46,15 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
     }
 
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
-        if(list != null){
-            holder.textViewRestaurantName.text = list!![position].name
-            holder.textViewRestaurantCity.text = list!![position].city
-            holder.textViewRestaurantDistance.text = "${list!![position].getDistance(userLocation)} km"
+        if(restaurantList != null){
+            holder.textViewRestaurantName.text = restaurantList!![position].name
+            holder.textViewRestaurantCity.text = restaurantList!![position].city
+            holder.textViewRestaurantDistance.text = "${restaurantList!![position].getDistance(userLocation)} km"
 
-            if(list!![position] in savedList!!)
+            if(restaurantList!![position] in savedList!!)
                 holder.checkBoxRestaurant.isChecked = true
 
-            val imageReference = storage.reference.child("propics/${list!![position].id}.jpg")
+            val imageReference = storage.reference.child("propics/${restaurantList!![position].id}.jpg")
             imageReference.downloadUrl.addOnSuccessListener {
                 Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
             }

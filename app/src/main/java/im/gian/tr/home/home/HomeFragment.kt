@@ -37,20 +37,15 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
+        val adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, false)
+        val sortedAdapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, true)
+
         //TODO: Refactor this shit!!!!
         binding.recyclerViewNew.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerViewNew.adapter = RestaurantCardAdapter(
-            homeViewModel.restaurants.value,
-            homeViewModel.saved.value,
-            homeViewModel.userLocation.value,
-            false)
+        binding.recyclerViewNew.adapter = adapter
 
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerViewNear.adapter = RestaurantCardAdapter(
-            homeViewModel.restaurants.value,
-            homeViewModel.saved.value,
-            homeViewModel.userLocation.value,
-            true)
+        binding.recyclerViewNear.adapter = sortedAdapter
 
         val restaurantsObserver = Observer<List<Restaurant>> {
             binding.recyclerViewNew.adapter = RestaurantCardAdapter(
