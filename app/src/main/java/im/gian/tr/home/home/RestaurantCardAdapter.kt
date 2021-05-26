@@ -1,5 +1,6 @@
 package im.gian.tr.home.home
 
+import android.content.Context
 import android.location.Location
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import im.gian.tr.R
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, private val savedList: MutableList<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+class RestaurantCardAdapter(private val context: Context?, private var restaurantList: List<Restaurant>?, private val savedList: MutableList<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
     private val storage = Firebase.storage
     //private val db = Firebase.firestore
     //private val user = Firebase.auth
@@ -49,15 +50,17 @@ class RestaurantCardAdapter(private var restaurantList: List<Restaurant>?, priva
         if(restaurantList != null){
             holder.textViewRestaurantName.text = restaurantList!![position].name
             holder.textViewRestaurantCity.text = restaurantList!![position].city
-            holder.textViewRestaurantDistance.text = "${restaurantList!![position].getDistance(userLocation)} km"
+
+            val distance = restaurantList!![position].getDistance(userLocation) ?: "--"
+            holder.textViewRestaurantDistance.text = context?.getString(R.string.km, distance.toString())
 
             if(restaurantList!![position] in savedList!!)
                 holder.checkBoxRestaurant.isChecked = true
 
-            val imageReference = storage.reference.child("propics/${restaurantList!![position].id}.jpg")
-            imageReference.downloadUrl.addOnSuccessListener {
+            storage.reference.child("propics/${restaurantList!![position].id}.jpg").downloadUrl.addOnSuccessListener {
                 Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
             }
+
         }
 
     }

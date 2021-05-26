@@ -33,4 +33,6 @@
     <string name="last_restaurants">Novità</string>
     <string name="near_restaurants">Vicini a te</string>
 
+    <string name="km">%1$s km</string>
+
 </resources>

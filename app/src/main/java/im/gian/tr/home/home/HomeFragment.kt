@@ -37,8 +37,8 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
-        val adapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, false)
-        val sortedAdapter = RestaurantCardAdapter(homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, true)
+        val adapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, false)
+        val sortedAdapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, true)
 
         //TODO: Refactor this shit!!!!
         binding.recyclerViewNew.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -48,13 +48,13 @@ class HomeFragment : Fragment() {
         binding.recyclerViewNear.adapter = sortedAdapter
 
         val restaurantsObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewNew.adapter = RestaurantCardAdapter(
+            binding.recyclerViewNew.adapter = RestaurantCardAdapter(context,
                 homeViewModel.restaurants.value,
                 homeViewModel.saved.value,
                 homeViewModel.userLocation.value,
                 false)
 
-            binding.recyclerViewNear.adapter = RestaurantCardAdapter(
+            binding.recyclerViewNear.adapter = RestaurantCardAdapter(context,
                 homeViewModel.restaurants.value,
                 homeViewModel.saved.value,
                 homeViewModel.userLocation.value,
@@ -63,13 +63,13 @@ class HomeFragment : Fragment() {
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 
         val savedObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewNew.adapter = RestaurantCardAdapter(
+            binding.recyclerViewNew.adapter = RestaurantCardAdapter(context,
                 homeViewModel.restaurants.value,
                 homeViewModel.saved.value,
                 homeViewModel.userLocation.value,
                 false)
 
-            binding.recyclerViewNear.adapter = RestaurantCardAdapter(
+            binding.recyclerViewNear.adapter = RestaurantCardAdapter(context,
                 homeViewModel.restaurants.value,
                 homeViewModel.saved.value,
                 homeViewModel.userLocation.value,
