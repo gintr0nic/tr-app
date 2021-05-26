@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion "android-S"
+    buildToolsVersion "31.0.0-rc4"
 
     defaultConfig {
         applicationId "im.gian.tr"
         minSdkVersion 28 //TODO: lower to 21 and make separate v28 layot
-        targetSdkVersion 30
+        targetSdkVersion "S"
         versionCode 1
         versionName "1.0"
 
