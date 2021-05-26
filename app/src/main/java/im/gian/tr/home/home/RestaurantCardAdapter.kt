@@ -19,7 +19,7 @@ import im.gian.tr.R
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private val context: Context?, private var restaurantList: List<Restaurant>?, private val savedList: MutableList<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+class RestaurantCardAdapter(private val context: Context?, private var restaurantList: List<Restaurant>?, private var savedList: List<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
     private val storage = Firebase.storage
     //private val db = Firebase.firestore
     //private val user = Firebase.auth
@@ -63,6 +63,16 @@ class RestaurantCardAdapter(private val context: Context?, private var restauran
 
         }
 
+    }
+
+    fun updateRestaurants(newRestaurantList: List<Restaurant>?) {
+        restaurantList = newRestaurantList
+        notifyDataSetChanged()
+    }
+
+    fun updateSaved(newSavedList: List<Restaurant>?) {
+        savedList = newSavedList
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = restaurantList!!.size

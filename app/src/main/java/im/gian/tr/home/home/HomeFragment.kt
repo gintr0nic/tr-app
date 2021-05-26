@@ -40,40 +40,21 @@ class HomeFragment : Fragment() {
         val adapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, false)
         val sortedAdapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, true)
 
-        //TODO: Refactor this shit!!!!
         binding.recyclerViewNew.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNew.adapter = adapter
 
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNear.adapter = sortedAdapter
 
-        val restaurantsObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewNew.adapter = RestaurantCardAdapter(context,
-                homeViewModel.restaurants.value,
-                homeViewModel.saved.value,
-                homeViewModel.userLocation.value,
-                false)
-
-            binding.recyclerViewNear.adapter = RestaurantCardAdapter(context,
-                homeViewModel.restaurants.value,
-                homeViewModel.saved.value,
-                homeViewModel.userLocation.value,
-                true)
+        val restaurantsObserver = Observer<List<Restaurant>> { restaurants ->
+            adapter.updateRestaurants(restaurants)
+            sortedAdapter.updateRestaurants(restaurants)
         }
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 
-        val savedObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewNew.adapter = RestaurantCardAdapter(context,
-                homeViewModel.restaurants.value,
-                homeViewModel.saved.value,
-                homeViewModel.userLocation.value,
-                false)
-
-            binding.recyclerViewNear.adapter = RestaurantCardAdapter(context,
-                homeViewModel.restaurants.value,
-                homeViewModel.saved.value,
-                homeViewModel.userLocation.value,
-                true)
+        val savedObserver = Observer<List<Restaurant>> { saved ->
+            adapter.updateSaved(saved)
+            sortedAdapter.updateSaved(saved)
         }
         homeViewModel.saved.observe(viewLifecycleOwner, savedObserver)
 

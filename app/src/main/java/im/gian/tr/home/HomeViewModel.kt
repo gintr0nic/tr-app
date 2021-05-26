@@ -53,8 +53,8 @@ class HomeViewModel : ViewModel() {
     }
 
     //Saved
-    private val _saved = MutableLiveData<MutableList<Restaurant>>(mutableListOf(Restaurant("Caricamento...","Caricamento...")))
-    val saved: LiveData<MutableList<Restaurant>>
+    private val _saved = MutableLiveData<List<Restaurant>>(listOf(Restaurant("Caricamento...","Caricamento...")))
+    val saved: LiveData<List<Restaurant>>
         get() = _saved
 
     fun fetchSaved() {
