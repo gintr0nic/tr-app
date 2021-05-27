@@ -71,6 +71,7 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
 
         homeViewModel.restaurants.observe(context as FragmentActivity, restaurantsObserver)
         homeViewModel.saved.observe(context as FragmentActivity, savedObserver)
+        homeViewModel.userLocation.observe(context as FragmentActivity, locationObserver)
     }
 
     private val restaurantsObserver = Observer<List<Restaurant>> {
@@ -86,6 +87,11 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
 
     private val savedObserver = Observer<List<Restaurant>> {
         savedList = homeViewModel.saved.value
+        notifyDataSetChanged()
+    }
+
+    private val locationObserver = Observer<Location> {
+        userLocation = homeViewModel.userLocation.value
         notifyDataSetChanged()
     }
 
