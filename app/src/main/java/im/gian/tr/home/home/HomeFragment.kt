@@ -47,18 +47,6 @@ class HomeFragment : Fragment() {
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNear.adapter = sortedAdapter
 
-        val restaurantsObserver = Observer<List<Restaurant>> {
-            adapter.update()
-            sortedAdapter.update()
-        }
-        homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
-
-        val savedObserver = Observer<List<Restaurant>> {
-            adapter.update()
-            sortedAdapter.update()
-        }
-        homeViewModel.saved.observe(viewLifecycleOwner, savedObserver)
-
         homeViewModel.fetchSaved()
         homeViewModel.fetchRestaurants()
 

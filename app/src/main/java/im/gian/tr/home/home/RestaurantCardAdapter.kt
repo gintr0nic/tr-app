@@ -10,6 +10,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,8 +23,10 @@ import im.gian.tr.home.HomeViewModel
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private val context: Context?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
-    private val homeViewModel: HomeViewModel = ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
+class RestaurantCardAdapter(private val context: Context?, private val sortByDistance: Boolean) :
+    RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+    private val homeViewModel: HomeViewModel =
+        ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
 
     private var restaurantList: List<Restaurant>? = homeViewModel.restaurants.value
     private var savedList: List<Restaurant>? = homeViewModel.saved.value
@@ -40,43 +43,52 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantCardViewHolder {
-        val layout = LayoutInflater.from(parent.context).inflate(R.layout.restaurant_card_view,
-            parent, false)
+        val layout = LayoutInflater.from(parent.context).inflate(
+            R.layout.restaurant_card_view,
+            parent, false
+        )
         return RestaurantCardViewHolder(layout)
     }
 
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
-        if(restaurantList != null){
-            holder.textViewRestaurantName.text = restaurantList!![position].name
-            holder.textViewRestaurantCity.text = restaurantList!![position].city
+        holder.textViewRestaurantName.text = restaurantList!![position].name
+        holder.textViewRestaurantCity.text = restaurantList!![position].city
 
-            val distance = restaurantList!![position].getDistance(userLocation) ?: "--"
-            holder.textViewRestaurantDistance.text = context?.getString(R.string.km, distance.toString())
+        val distance = restaurantList!![position].getDistance(userLocation) ?: "--"
+        holder.textViewRestaurantDistance.text =
+            context?.getString(R.string.km, distance.toString())
 
-            if(restaurantList!![position] in savedList!!)
-                holder.checkBoxRestaurant.isChecked = true
+        if (restaurantList!![position] in savedList!!)
+            holder.checkBoxRestaurant.isChecked = true
 
-            storage.reference.child("propics/${restaurantList!![position].id}.jpg").downloadUrl.addOnSuccessListener {
-                Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
-            }
-
+        storage.reference.child("propics/${restaurantList!![position].id}.jpg").downloadUrl.addOnSuccessListener {
+            Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
         }
-
     }
 
-    fun update() {
-        restaurantList = if(sortByDistance){
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+
+        homeViewModel.restaurants.observe(context as FragmentActivity, restaurantsObserver)
+        homeViewModel.saved.observe(context as FragmentActivity, savedObserver)
+    }
+
+    private val restaurantsObserver = Observer<List<Restaurant>> {
+        restaurantList = if (sortByDistance) {
             val sortedRestaurantList = homeViewModel.restaurants.value?.toMutableList()
             sortedRestaurantList?.sortBy { it.getDistance(userLocation) }
             sortedRestaurantList
-        }else
+        } else
             homeViewModel.restaurants.value
-
-        savedList = homeViewModel.saved.value
-        userLocation = homeViewModel.userLocation.value
 
         notifyDataSetChanged()
     }
+
+    private val savedObserver = Observer<List<Restaurant>> {
+        savedList = homeViewModel.saved.value
+        notifyDataSetChanged()
+    }
+
 
     override fun getItemCount(): Int = restaurantList!!.size
 
