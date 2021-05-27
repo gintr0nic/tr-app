@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/detailsFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="im.gian.tr.pages.restaurant.details.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details" >
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="im.gian.tr.pages.restaurant.menu.MenuFragment"
+        android:label="@string/menu"
+        tools:layout="@layout/fragment_menu" >
+    </fragment>
+</navigation>
