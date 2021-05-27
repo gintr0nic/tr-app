@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,14 +32,14 @@ class HomeFragment : Fragment() {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),0)
         }
 
-        val homeViewModel: HomeViewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+        val homeViewModel: HomeViewModel = ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
 
         binding.home = this
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
-        val adapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, false)
-        val sortedAdapter = RestaurantCardAdapter(context, homeViewModel.restaurants.value, homeViewModel.saved.value, homeViewModel.userLocation.value, true)
+        val adapter = RestaurantCardAdapter(context, false)
+        val sortedAdapter = RestaurantCardAdapter(context, true)
 
         binding.recyclerViewNew.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNew.adapter = adapter
@@ -46,15 +47,15 @@ class HomeFragment : Fragment() {
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNear.adapter = sortedAdapter
 
-        val restaurantsObserver = Observer<List<Restaurant>> { restaurants ->
-            adapter.updateRestaurants(restaurants)
-            sortedAdapter.updateRestaurants(restaurants)
+        val restaurantsObserver = Observer<List<Restaurant>> {
+            adapter.update()
+            sortedAdapter.update()
         }
         homeViewModel.restaurants.observe(viewLifecycleOwner, restaurantsObserver)
 
-        val savedObserver = Observer<List<Restaurant>> { saved ->
-            adapter.updateSaved(saved)
-            sortedAdapter.updateSaved(saved)
+        val savedObserver = Observer<List<Restaurant>> {
+            adapter.update()
+            sortedAdapter.update()
         }
         homeViewModel.saved.observe(viewLifecycleOwner, savedObserver)
 

@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -16,21 +18,18 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
+import im.gian.tr.home.HomeViewModel
 import im.gian.tr.home.model.Restaurant
 import java.math.RoundingMode
 
-class RestaurantCardAdapter(private val context: Context?, private var restaurantList: List<Restaurant>?, private var savedList: List<Restaurant>?, private val userLocation: Location?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
-    private val storage = Firebase.storage
-    //private val db = Firebase.firestore
-    //private val user = Firebase.auth
+class RestaurantCardAdapter(private val context: Context?, private val sortByDistance: Boolean) : RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+    private val homeViewModel: HomeViewModel = ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
 
-    init {
-        if(sortByDistance){
-            val sortedRestaurantList = restaurantList?.toMutableList()
-            sortedRestaurantList?.sortBy { it.getDistance(userLocation) }
-            restaurantList = sortedRestaurantList
-        }
-    }
+    private var restaurantList: List<Restaurant>? = homeViewModel.restaurants.value
+    private var savedList: List<Restaurant>? = homeViewModel.saved.value
+    private var userLocation: Location? = homeViewModel.userLocation.value
+
+    private val storage = Firebase.storage
 
     class RestaurantCardViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
         val textViewRestaurantName: TextView = row.findViewById(R.id.textViewRestaurantName)
@@ -65,13 +64,17 @@ class RestaurantCardAdapter(private val context: Context?, private var restauran
 
     }
 
-    fun updateRestaurants(newRestaurantList: List<Restaurant>?) {
-        restaurantList = newRestaurantList
-        notifyDataSetChanged()
-    }
+    fun update() {
+        restaurantList = if(sortByDistance){
+            val sortedRestaurantList = homeViewModel.restaurants.value?.toMutableList()
+            sortedRestaurantList?.sortBy { it.getDistance(userLocation) }
+            sortedRestaurantList
+        }else
+            homeViewModel.restaurants.value
 
-    fun updateSaved(newSavedList: List<Restaurant>?) {
-        savedList = newSavedList
+        savedList = homeViewModel.saved.value
+        userLocation = homeViewModel.userLocation.value
+
         notifyDataSetChanged()
     }
 
