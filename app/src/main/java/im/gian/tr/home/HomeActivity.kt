@@ -38,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.homeFragment -> homeViewModel.setTitleTextRes(R.string.home)
+                R.id.homeFragment -> homeViewModel.setTitleTextRes(R.string.app_name)
                 R.id.mapFragment -> homeViewModel.setTitleTextRes(R.string.map)
                 R.id.savedFragment -> homeViewModel.setTitleTextRes(R.string.saved)
             }
