@@ -18,6 +18,8 @@ class RestaurantActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityRestaurantBinding>(this,R.layout.activity_restaurant)
         val navController = findNavController(R.id.navHostFragment)
 
+        setSupportActionBar(findViewById(R.id.toolbar))
+
         binding.restaurantViewModel = restaurantViewModel
         binding.lifecycleOwner = this
 
