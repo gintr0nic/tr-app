@@ -38,6 +38,10 @@
 
     <string name="km">%1$s km</string>
 
+    <string name="hello">Ciao!</string>
+    <string name="discover_new_restaurants">Scopri nuovi ristoranti</string>
+    <string name="search">Cerca ristoranti...</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
