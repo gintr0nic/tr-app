@@ -1,7 +1,6 @@
 package im.gian.tr.home
 
 import android.location.Location
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
-import im.gian.tr.home.model.Restaurant
+import im.gian.tr.model.Restaurant
 
 class HomeViewModel : ViewModel() {
     private val db = Firebase.firestore

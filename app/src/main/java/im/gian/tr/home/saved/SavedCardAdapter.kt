@@ -1,7 +1,5 @@
 package im.gian.tr.home.saved
 
-import android.location.Location
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
-import im.gian.tr.home.model.Restaurant
+import im.gian.tr.model.Restaurant
 
 class SavedCardAdapter(private var savedList: List<Restaurant>?) : RecyclerView.Adapter<SavedCardAdapter.SavedCardViewHolder>() {
     var storage = Firebase.storage

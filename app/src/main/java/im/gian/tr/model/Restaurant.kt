@@ -1,4 +1,4 @@
-package im.gian.tr.home.model
+package im.gian.tr.model
 
 import android.location.Location
 import com.google.firebase.firestore.GeoPoint

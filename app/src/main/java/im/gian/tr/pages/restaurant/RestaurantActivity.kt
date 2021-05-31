@@ -19,11 +19,12 @@ class RestaurantActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navHostFragment)
 
         setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         binding.restaurantViewModel = restaurantViewModel
         binding.lifecycleOwner = this
 
-        restaurantViewModel.setTest(intent.getStringExtra("id")!!)
+        restaurantViewModel.getRestaurant(intent.getStringExtra("id")!!)
 
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.bottom_bar_menu_restaurant)

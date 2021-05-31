@@ -3,7 +3,6 @@ package im.gian.tr.home.home
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,13 +16,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
 import im.gian.tr.home.HomeViewModel
-import im.gian.tr.home.model.Restaurant
+import im.gian.tr.model.Restaurant
 import im.gian.tr.intro.IntroActivity
 import im.gian.tr.pages.restaurant.RestaurantActivity
 

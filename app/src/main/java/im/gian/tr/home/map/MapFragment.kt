@@ -1,16 +1,11 @@
 package im.gian.tr.home.map
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,13 +14,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import im.gian.tr.R
-import im.gian.tr.databinding.FragmentHomeBinding
-import im.gian.tr.databinding.FragmentMapBinding
-import im.gian.tr.databinding.FragmentSigninBinding
 import im.gian.tr.home.HomeViewModel
-import im.gian.tr.home.home.RestaurantCardAdapter
-import im.gian.tr.home.model.Restaurant
-import im.gian.tr.intro.IntroViewModel
+import im.gian.tr.model.Restaurant
 
 class MapFragment : Fragment() {
     lateinit var homeViewModel: HomeViewModel

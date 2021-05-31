@@ -26,15 +26,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                android:theme="@style/Theme.TR.Toolbar"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:toolbarId="@+id/toolbar">
+                app:toolbarId="@+id/toolbar"
+                app:title="@{restaurantViewModel.restaurant.name}">
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin" />
+                    android:layout_height="70dp"
+                    app:layout_collapseMode="pin"/>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
@@ -54,25 +56,39 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:gravity="bottom">
 
-            <me.ibrahimsn.lib.SmoothBottomBar
-                android:id="@+id/bottomBar"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                app:backgroundColor="@color/primary"
-                app:iconTint="@color/secondary"
-                app:iconTintActive="@color/white"
-                app:menu="@menu/bottom_bar_menu_restaurant"
-                app:cornerRadius="20dp"
-                app:iconSize="25dp"
-                app:itemPadding="10dp"/>
-        </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:src="@drawable/gradient_shape_bottom"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <me.ibrahimsn.lib.SmoothBottomBar
+                        android:id="@+id/bottomBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        app:backgroundColor="@color/primary"
+                        app:iconTint="@color/secondary"
+                        app:iconTintActive="@color/white"
+                        app:menu="@menu/bottom_bar_menu_restaurant"
+                        app:cornerRadius="20dp"
+                        app:iconSize="25dp"
+                        app:itemPadding="10dp"/>
+                </FrameLayout>
+
+            </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
