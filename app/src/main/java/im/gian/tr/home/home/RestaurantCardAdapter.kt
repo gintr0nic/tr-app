@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.google.gson.Gson
 import im.gian.tr.R
 import im.gian.tr.home.HomeViewModel
 import im.gian.tr.model.Restaurant
@@ -54,7 +55,7 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
         holder.cardRestaurant.setOnClickListener {
             val intent = Intent(context, RestaurantActivity::class.java)
-            intent.putExtra("id", restaurantList!![position].id)
+            intent.putExtra("restaurant",Gson().toJson(restaurantList!![position]))
             context?.startActivity(intent)
         }
 

@@ -2,11 +2,13 @@ package im.gian.tr.model
 
 import android.location.Location
 import com.google.firebase.firestore.GeoPoint
+import java.io.Serializable
 import java.math.RoundingMode
 
-data class Restaurant(
+data class Restaurant (
     val name: String = "",
     val city: String = "",
+    val description: String = "",
     val location: GeoPoint = GeoPoint(0.0,0.0),
     var id: String = ""
 ){

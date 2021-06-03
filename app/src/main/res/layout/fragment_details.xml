@@ -24,7 +24,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="Ristorante da Gian" />
+            android:text="@{restaurantViewModel.restaurant.name}" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textSize="16sp"
-                android:text="Foggia"/>
+                android:text="@{restaurantViewModel.restaurant.city}"/>
         </LinearLayout>
 
         <TextView
@@ -55,22 +55,12 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:text="Descrizione"/>
+            android:text="@string/description"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/large_text"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:text="Immagini"/>
+            android:text="@{restaurantViewModel.restaurant.description}"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +70,17 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:text="Certificazioni"/>
+            android:text="@string/images"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/certifications"/>
 
         <Space
             android:layout_width="match_parent"
