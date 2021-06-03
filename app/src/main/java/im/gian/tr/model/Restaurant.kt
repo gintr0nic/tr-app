@@ -9,6 +9,7 @@ data class Restaurant (
     val name: String = "",
     val city: String = "",
     val description: String = "",
+    val certifications: List<String> = listOf(),
     val location: GeoPoint = GeoPoint(0.0,0.0),
     var id: String = ""
 ){

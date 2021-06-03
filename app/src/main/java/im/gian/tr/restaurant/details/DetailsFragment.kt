@@ -8,8 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentDetailsBinding
+import im.gian.tr.restaurant.CertificationCardAdapter
 import im.gian.tr.restaurant.RestaurantViewModel
 
 class DetailsFragment : Fragment() {
@@ -28,6 +30,10 @@ class DetailsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
 
+        binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
+
+        restaurantViewModel.fetchCertifications()
 
         return binding.root
     }

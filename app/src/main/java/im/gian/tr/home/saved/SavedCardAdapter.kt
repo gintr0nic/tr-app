@@ -1,5 +1,6 @@
 package im.gian.tr.home.saved
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.google.gson.Gson
 import im.gian.tr.R
 import im.gian.tr.model.Restaurant
+import im.gian.tr.restaurant.RestaurantActivity
 
 class SavedCardAdapter(private var savedList: List<Restaurant>?) : RecyclerView.Adapter<SavedCardAdapter.SavedCardViewHolder>() {
     var storage = Firebase.storage
@@ -29,6 +32,7 @@ class SavedCardAdapter(private var savedList: List<Restaurant>?) : RecyclerView.
 
     override fun onBindViewHolder(holder: SavedCardViewHolder, position: Int) {
         holder.textViewSavedName.text = savedList!![position].name
+
         holder.textViewSavedCity.text = savedList!![position].city
 
         val imageReference = storage.reference.child("propics/${savedList!![position].id}.jpg")
