@@ -21,8 +21,7 @@ import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
 import im.gian.tr.home.HomeViewModel
 import im.gian.tr.model.Restaurant
-import im.gian.tr.intro.IntroActivity
-import im.gian.tr.pages.restaurant.RestaurantActivity
+import im.gian.tr.restaurant.RestaurantActivity
 
 class RestaurantCardAdapter(private val context: Context?, private val sortByDistance: Boolean) :
     RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {

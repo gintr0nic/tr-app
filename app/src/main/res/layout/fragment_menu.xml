@@ -6,10 +6,10 @@
     <data>
         <variable
             name="restaurantViewModel"
-            type="im.gian.tr.pages.restaurant.RestaurantViewModel" />
+            type="im.gian.tr.restaurant.RestaurantViewModel" />
         <variable
             name="menu"
-            type="im.gian.tr.pages.restaurant.menu.MenuFragment" />
+            type="im.gian.tr.restaurant.menu.MenuFragment" />
     </data>
 
     <LinearLayout

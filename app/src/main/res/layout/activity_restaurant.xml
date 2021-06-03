@@ -7,7 +7,7 @@
     <data>
         <variable
             name="restaurantViewModel"
-            type="im.gian.tr.pages.restaurant.RestaurantViewModel"/>
+            type="im.gian.tr.restaurant.RestaurantViewModel"/>
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

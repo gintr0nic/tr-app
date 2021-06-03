@@ -1,4 +1,4 @@
-package im.gian.tr.pages.restaurant
+package im.gian.tr.restaurant
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

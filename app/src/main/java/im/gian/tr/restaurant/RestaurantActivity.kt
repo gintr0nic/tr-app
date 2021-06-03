@@ -1,4 +1,4 @@
-package im.gian.tr.pages.restaurant
+package im.gian.tr.restaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

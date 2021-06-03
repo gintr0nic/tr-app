@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="im.gian.tr.pages.restaurant.details.DetailsFragment"
+        android:name="im.gian.tr.restaurant.details.DetailsFragment"
         android:label="@string/details"
         tools:layout="@layout/fragment_details" >
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="im.gian.tr.pages.restaurant.menu.MenuFragment"
+        android:name="im.gian.tr.restaurant.menu.MenuFragment"
         android:label="@string/menu"
         tools:layout="@layout/fragment_menu" >
     </fragment>
