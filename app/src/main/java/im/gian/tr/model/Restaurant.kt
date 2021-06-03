@@ -11,7 +11,7 @@ data class Restaurant(
     var id: String = ""
 ){
     fun getDistance(userLocation: Location?): Float?{
-        if(userLocation == null) return null
+        return if(userLocation == null) null
         else {
             val restaurantLocation = Location("")
             restaurantLocation.let {
@@ -19,7 +19,7 @@ data class Restaurant(
                 it.longitude = location.longitude
             }
 
-            return (userLocation.distanceTo(restaurantLocation) / 1000).toBigDecimal()
+            (userLocation.distanceTo(restaurantLocation) / 1000).toBigDecimal()
                 .setScale(1, RoundingMode.UP).toFloat()
         }
     }
