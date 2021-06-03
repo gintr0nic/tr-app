@@ -18,6 +18,7 @@ class RestaurantViewModel : ViewModel() {
         get() = _restaurant
 
     fun setRestaurant(restaurant: Restaurant){
+        Log.d("debb", "set rest")
         _restaurant.value = restaurant
     }
 
@@ -30,7 +31,7 @@ class RestaurantViewModel : ViewModel() {
         val certificationList = mutableListOf<Certification>()
         val ids = _restaurant.value?.certifications
 
-        Log.d("certss", ids.toString())
+        Log.d("debb", "fetch rests")
         ids?.forEachIndexed { index, s ->
             db.collection("certifications").document(s).get().addOnSuccessListener { document ->
                 val certification = document.toObject(Certification::class.java)!!

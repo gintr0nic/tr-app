@@ -24,6 +24,7 @@ class RestaurantActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         restaurantViewModel.setRestaurant(Gson().fromJson(intent.getStringExtra("restaurant"), Restaurant::class.java))
+        restaurantViewModel.fetchCertifications()
 
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.bottom_bar_menu_restaurant)

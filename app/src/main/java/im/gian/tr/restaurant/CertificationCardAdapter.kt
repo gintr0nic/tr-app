@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -40,9 +41,20 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
         return CertificationCardViewHolder(layout)
     }
 
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+
+        restaurantViewModel.certifications.observe(context as RestaurantActivity, certificationsObserver)
+    }
+
     override fun onBindViewHolder(holder: CertificationCardViewHolder, position: Int) {
         holder.textViewCertification.text = certificationList!![position].name
 
+    }
+
+    private val certificationsObserver = Observer<List<Certification>> {
+        certificationList = restaurantViewModel.certifications.value
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = certificationList!!.size

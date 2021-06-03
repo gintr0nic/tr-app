@@ -33,8 +33,6 @@ class DetailsFragment : Fragment() {
         binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
 
-        restaurantViewModel.fetchCertifications()
-
         return binding.root
     }
 }
