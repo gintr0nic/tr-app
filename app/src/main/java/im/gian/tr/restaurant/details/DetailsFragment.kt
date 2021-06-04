@@ -36,9 +36,9 @@ class DetailsFragment : Fragment() {
 
         //Saved
         if(restaurantViewModel.saved.value == true)
-            binding.checkboxRestaurant.isChecked = true
+            binding.checkBoxRestaurant.isChecked = true
 
-        binding.checkboxRestaurant.setOnCheckedChangeListener { _, isChecked ->
+        binding.checkBoxRestaurant.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) restaurantViewModel.addSaved()
             else restaurantViewModel.removeSaved()
         }

@@ -66,8 +66,9 @@
                     android:id="@+id/checkboxRestaurant"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:enabled="false"
                     android:button="@drawable/checkbox_selector"
-                    app:buttonTint="@color/primary"/>
+                    app:buttonTint="@color/primary" />
 
             </LinearLayout>
 
