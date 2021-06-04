@@ -34,6 +34,15 @@ class DetailsFragment : Fragment() {
         binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
 
+        //Saved
+        if(restaurantViewModel.saved.value == true)
+            binding.checkboxRestaurant.isChecked = true
+
+        binding.checkboxRestaurant.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) restaurantViewModel.addSaved()
+            else restaurantViewModel.removeSaved()
+        }
+
         return binding.root
     }
 }

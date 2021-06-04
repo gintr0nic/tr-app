@@ -66,8 +66,7 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
             context?.getString(R.string.km, distance.toString())
 
         //Saved
-        if (restaurantList!![position] in savedList!!)
-            holder.checkBoxRestaurant.isChecked = true
+        holder.checkBoxRestaurant.isChecked = restaurantList!![position] in savedList!!
 
         //Image
         storage.reference.child("propics/${restaurantList!![position].id}.jpg").downloadUrl.addOnSuccessListener {
@@ -78,6 +77,10 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
         holder.cardRestaurant.setOnClickListener {
             val intent = Intent(context, RestaurantActivity::class.java)
             intent.putExtra("restaurant",Gson().toJson(restaurantList!![position]))
+
+            if (restaurantList!![position] in savedList!!)
+                intent.putExtra("saved", true)
+
             context?.startActivity(intent)
         }
     }

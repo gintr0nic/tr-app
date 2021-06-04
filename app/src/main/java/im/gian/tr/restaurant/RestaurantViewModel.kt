@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.model.Certification
@@ -11,6 +13,7 @@ import im.gian.tr.model.Restaurant
 
 class RestaurantViewModel : ViewModel() {
     private val db = Firebase.firestore
+    private val user = Firebase.auth
 
     //Name
     private val _restaurant = MutableLiveData<Restaurant>(Restaurant("Caricamento..."))
@@ -19,6 +22,23 @@ class RestaurantViewModel : ViewModel() {
 
     fun setRestaurant(restaurant: Restaurant){
         _restaurant.value = restaurant
+    }
+
+    //Saved
+    private val _saved = MutableLiveData<Boolean>(false)
+    val saved: LiveData<Boolean>
+        get() = _saved
+
+    fun setSaved(new: Boolean){
+        _saved.value = new
+    }
+
+    fun addSaved(){
+        db.collection("users").document(user.uid!!).update("saved", FieldValue.arrayUnion("restaurants/${restaurant.value?.id}"))
+    }
+
+    fun removeSaved(){
+        db.collection("users").document(user.uid!!).update("saved", FieldValue.arrayRemove("restaurants/${restaurant.value?.id}"))
     }
 
     //Certifications
@@ -39,4 +59,5 @@ class RestaurantViewModel : ViewModel() {
             }
         }
     }
+
 }

@@ -2,6 +2,7 @@ package im.gian.tr.restaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -17,15 +18,16 @@ class RestaurantActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Set current viewing restaurant and get data
+        restaurantViewModel.setRestaurant(Gson().fromJson(intent.getStringExtra("restaurant"), Restaurant::class.java))
+        restaurantViewModel.fetchCertifications()
+        restaurantViewModel.setSaved(intent.getBooleanExtra("saved", false))
+
         val binding = DataBindingUtil.setContentView<ActivityRestaurantBinding>(this,R.layout.activity_restaurant)
         val navController = findNavController(R.id.navHostFragment)
 
         binding.restaurantViewModel = restaurantViewModel
         binding.lifecycleOwner = this
-
-        //Set current viewing restaurant and get data
-        restaurantViewModel.setRestaurant(Gson().fromJson(intent.getStringExtra("restaurant"), Restaurant::class.java))
-        restaurantViewModel.fetchCertifications()
 
         //Setup bottom bar
         val popupMenu = PopupMenu(this, null)
