@@ -1,26 +1,20 @@
-package im.gian.tr.restaurant
+package im.gian.tr.restaurant.details
 
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.google.gson.Gson
 import im.gian.tr.R
-import im.gian.tr.home.HomeViewModel
 import im.gian.tr.model.Certification
-import im.gian.tr.model.Restaurant
 import im.gian.tr.restaurant.RestaurantActivity
+import im.gian.tr.restaurant.RestaurantViewModel
 
 class CertificationCardAdapter(private val context: Context?) : RecyclerView.Adapter<CertificationCardAdapter.CertificationCardViewHolder>() {
     private val restaurantViewModel: RestaurantViewModel =

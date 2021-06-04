@@ -1,4 +1,4 @@
-package im.gian.tr.restaurant.details
+package im.gian.tr.restaurant.contacts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,37 +10,25 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
+import im.gian.tr.databinding.FragmentContactsBinding
 import im.gian.tr.databinding.FragmentDetailsBinding
 import im.gian.tr.restaurant.RestaurantViewModel
 
-class DetailsFragment : Fragment() {
+class ContactsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentDetailsBinding>(
-            inflater, R.layout.fragment_details, container, false)
+        val binding = DataBindingUtil.inflate<FragmentContactsBinding>(
+            inflater, R.layout.fragment_contacts, container, false)
 
         val restaurantViewModel: RestaurantViewModel = ViewModelProvider(context as FragmentActivity).get(
             RestaurantViewModel::class.java)
 
-        binding.details = this
+        binding.contacts = this
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
-
-        //Certifications recyclerview
-        binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
-
-        //Saved
-        if(restaurantViewModel.saved.value == true)
-            binding.checkBoxRestaurant.isChecked = true
-
-        binding.checkBoxRestaurant.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked) restaurantViewModel.addSaved()
-            else restaurantViewModel.removeSaved()
-        }
 
         return binding.root
     }

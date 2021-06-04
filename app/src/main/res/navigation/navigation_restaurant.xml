@@ -17,4 +17,11 @@
         android:label="@string/menu"
         tools:layout="@layout/fragment_menu" >
     </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="im.gian.tr.restaurant.contacts.ContactsFragment"
+        android:label="@string/contacts"
+        tools:layout="@layout/fragment_contacts" >
+    </fragment>
+
 </navigation>
