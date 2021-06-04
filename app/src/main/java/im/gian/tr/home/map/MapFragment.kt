@@ -21,10 +21,12 @@ class MapFragment : Fragment() {
     lateinit var homeViewModel: HomeViewModel
 
     private val callback = OnMapReadyCallback { googleMap ->
+        //Add restaurant markers
         homeViewModel.restaurants.value?.forEach {
             googleMap.addMarker(MarkerOptions().position(LatLng(it.location.latitude,it.location.longitude)))
         }
 
+        //Move camera to first restaurant in list
         val newPos = homeViewModel.restaurants.value?.get(0)?.location
         if (newPos != null) {
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(newPos.latitude,newPos.longitude)))
@@ -45,6 +47,7 @@ class MapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
 
+        //Update map when restaurant list changes
         val restaurantsObserver = Observer<List<Restaurant>> {
             mapFragment?.getMapAsync(callback)
         }

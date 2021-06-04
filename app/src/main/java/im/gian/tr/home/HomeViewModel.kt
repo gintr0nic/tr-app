@@ -45,7 +45,7 @@ class HomeViewModel : ViewModel() {
                 val restaurant = document.toObject(Restaurant::class.java)!!
                 restaurant.id = document.id
                 restaurantList.add(restaurant)
-                if(index == it.documents.size - 1)
+                if(index == it.documents.size - 1) //If last update list with local one
                     _restaurants.value = restaurantList
             }
         }
@@ -66,7 +66,7 @@ class HomeViewModel : ViewModel() {
                     val restaurant = document.toObject(Restaurant::class.java)!!
                     restaurant.id = document.id
                     savedList.add(restaurant)
-                    if(index == savedPath.size - 1)
+                    if(index == savedPath.size - 1) //If last update list with local one
                         _saved.value = savedList
                 }
             }

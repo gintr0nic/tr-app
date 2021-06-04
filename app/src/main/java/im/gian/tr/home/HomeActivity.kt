@@ -32,10 +32,12 @@ class HomeActivity : AppCompatActivity() {
         binding.homeViewModel = homeViewModel
         binding.lifecycleOwner = this
 
+        //Setup bottom bar
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.bottom_bar_menu)
         binding.bottomBar.setupWithNavController(popupMenu.menu, navController)
 
+        //Change title according to selected page
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.homeFragment -> homeViewModel.setTitleTextRes(R.string.app_name)
@@ -44,6 +46,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        //Check location permission and get last known coarse location
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationClient.lastLocation

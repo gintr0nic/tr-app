@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser = Firebase.auth.currentUser
 
+        //If the user is not registered, go to Intro page (and then Login page)
+        //Otherwise go directly to Home page
         if(currentUser == null) {
             val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)

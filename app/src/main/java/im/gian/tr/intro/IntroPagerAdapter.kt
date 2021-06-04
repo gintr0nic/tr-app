@@ -8,7 +8,7 @@ import androidx.viewpager.widget.PagerAdapter
 import im.gian.tr.R
 
 class IntroPagerAdapter(private val context: Context) : PagerAdapter() {
-    val pages = 2
+    private val pages = 2
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         var layout = LayoutInflater.from(context).inflate(R.layout.frame_intro_one, container, false)
@@ -19,7 +19,6 @@ class IntroPagerAdapter(private val context: Context) : PagerAdapter() {
         }
 
         container.addView(layout)
-        //viewModel.setButtonRes(position)
         return layout
     }
 

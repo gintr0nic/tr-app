@@ -18,7 +18,6 @@ class RestaurantViewModel : ViewModel() {
         get() = _restaurant
 
     fun setRestaurant(restaurant: Restaurant){
-        Log.d("debb", "set rest")
         _restaurant.value = restaurant
     }
 
@@ -31,12 +30,11 @@ class RestaurantViewModel : ViewModel() {
         val certificationList = mutableListOf<Certification>()
         val ids = _restaurant.value?.certifications
 
-        Log.d("debb", "fetch rests")
         ids?.forEachIndexed { index, s ->
             db.collection("certifications").document(s).get().addOnSuccessListener { document ->
                 val certification = document.toObject(Certification::class.java)!!
                 certificationList.add(certification)
-                if(index == ids.size - 1)
+                if(index == ids.size - 1)  //If last update list with local one
                     _certifications.value = certificationList
             }
         }

@@ -30,6 +30,7 @@ class DetailsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
 
+        //Certifications recyclerview
         binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
 

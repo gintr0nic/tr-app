@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
             inflater, R.layout.fragment_home, container, false)
 
+        //Check and/or request location permission
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),0)
         }
@@ -35,15 +36,17 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
+        //Restaurants recyclerview
         val adapter = RestaurantCardAdapter(context, false)
-        val sortedAdapter = RestaurantCardAdapter(context, true)
-
         binding.recyclerViewNew.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNew.adapter = adapter
 
+        //Restaurants recyclerview (sorted by distance)
+        val sortedAdapter = RestaurantCardAdapter(context, true)
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNear.adapter = sortedAdapter
 
+        //Fetch data
         homeViewModel.fetchSaved()
         homeViewModel.fetchRestaurants()
 

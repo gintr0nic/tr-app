@@ -25,6 +25,8 @@ class IntroActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         binding.viewPager.adapter = IntroPagerAdapter(this)
+
+        //Change button text when page changes
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
             override fun onPageScrolled(
                 position: Int,
@@ -43,6 +45,8 @@ class IntroActivity : AppCompatActivity() {
             }
         })
 
+        //Go to next page
+        //If user reaches last page go to Login activity
         binding.button.setOnClickListener{
             val pages = (binding.viewPager.adapter as IntroPagerAdapter).count
             val current = binding.viewPager.currentItem
@@ -57,6 +61,7 @@ class IntroActivity : AppCompatActivity() {
             }
         }
 
+        //Circle indicator to keep track of current page
         binding.circleIndicator.setViewPager(binding.viewPager)
     }
 }

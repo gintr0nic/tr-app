@@ -45,4 +45,8 @@
     <string name="description">Descrizione</string>
     <string name="images">Immagini</string>
     <string name="certifications">Certificazioni</string>
+
+    <string name="not_available">Non ancora disponibile!</string>
+    <string name="login_error">Login fallito! Controlla i dati</string>
+    <string name="password_not_match">Le password non corrispondono!</string>
 </resources>

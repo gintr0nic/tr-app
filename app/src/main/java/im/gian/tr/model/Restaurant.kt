@@ -13,6 +13,8 @@ data class Restaurant (
     val location: GeoPoint = GeoPoint(0.0,0.0),
     var id: String = ""
 ){
+
+    //Get distance in km from given user location
     fun getDistance(userLocation: Location?): Float?{
         return if(userLocation == null) null
         else {

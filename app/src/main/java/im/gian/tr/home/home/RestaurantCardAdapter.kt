@@ -26,6 +26,7 @@ import im.gian.tr.restaurant.RestaurantActivity
 
 class RestaurantCardAdapter(private val context: Context?, private val sortByDistance: Boolean) :
     RecyclerView.Adapter<RestaurantCardAdapter.RestaurantCardViewHolder>() {
+
     private val homeViewModel: HomeViewModel =
         ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
 
@@ -53,36 +54,44 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
     }
 
     override fun onBindViewHolder(holder: RestaurantCardViewHolder, position: Int) {
-        holder.cardRestaurant.setOnClickListener {
-            val intent = Intent(context, RestaurantActivity::class.java)
-            intent.putExtra("restaurant",Gson().toJson(restaurantList!![position]))
-            context?.startActivity(intent)
-        }
-
+        //Name
         holder.textViewRestaurantName.text = restaurantList!![position].name
 
+        //City
         holder.textViewRestaurantCity.text = restaurantList!![position].city
 
+        //Distance
         val distance = restaurantList!![position].getDistance(userLocation) ?: "--"
         holder.textViewRestaurantDistance.text =
             context?.getString(R.string.km, distance.toString())
 
+        //Saved
         if (restaurantList!![position] in savedList!!)
             holder.checkBoxRestaurant.isChecked = true
 
+        //Image
         storage.reference.child("propics/${restaurantList!![position].id}.jpg").downloadUrl.addOnSuccessListener {
             Glide.with(holder.imageViewRestaurant).load(it).into(holder.imageViewRestaurant)
+        }
+
+        //Card
+        holder.cardRestaurant.setOnClickListener {
+            val intent = Intent(context, RestaurantActivity::class.java)
+            intent.putExtra("restaurant",Gson().toJson(restaurantList!![position]))
+            context?.startActivity(intent)
         }
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
 
+        //Observe for changes in viewmodel
         homeViewModel.restaurants.observe(context as FragmentActivity, restaurantsObserver)
         homeViewModel.saved.observe(context as FragmentActivity, savedObserver)
         homeViewModel.userLocation.observe(context as FragmentActivity, locationObserver)
     }
 
+    //Update restaurant list when viewmodel data changes (sort by location if needed)
     private val restaurantsObserver = Observer<List<Restaurant>> {
         restaurantList = if (sortByDistance) {
             val sortedRestaurantList = homeViewModel.restaurants.value?.toMutableList()
@@ -94,11 +103,13 @@ class RestaurantCardAdapter(private val context: Context?, private val sortByDis
         notifyDataSetChanged()
     }
 
+    //Update saved list when viewmodel data changes
     private val savedObserver = Observer<List<Restaurant>> {
         savedList = homeViewModel.saved.value
         notifyDataSetChanged()
     }
 
+    //Update user location when viewmodel data changes
     private val locationObserver = Observer<Location> {
         userLocation = homeViewModel.userLocation.value
         notifyDataSetChanged()

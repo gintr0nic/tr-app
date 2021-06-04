@@ -30,14 +30,11 @@ class SavedFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.homeViewModel = homeViewModel
 
+        //Saved recyclerview
         binding.recyclerViewSaved.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerViewSaved.adapter = SavedCardAdapter(homeViewModel.saved.value)
+        binding.recyclerViewSaved.adapter = SavedCardAdapter(context)
 
-        val savedObserver = Observer<List<Restaurant>> {
-            binding.recyclerViewSaved.adapter = SavedCardAdapter(homeViewModel.saved.value)
-        }
-        homeViewModel.saved.observe(viewLifecycleOwner, savedObserver)
-
+        //Fetch data
         homeViewModel.fetchSaved()
 
         return binding.root

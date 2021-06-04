@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -32,24 +33,30 @@ class SigninFragment : Fragment() {
         binding.signin = this
         binding.signinViewModel = signinViewModel
 
+        //Revert loading animation and go to Home
         val onSigninCompleteListener = OnCompleteListener<AuthResult>() { task ->
             if(task.isSuccessful) {
                 val intent = Intent(context, HomeActivity::class.java)
                 startActivity(intent)
+            }else{
+                Toast.makeText(context, context?.getText(R.string.login_error), Toast.LENGTH_SHORT).show()
             }
 
             binding.buttonSignin.revertAnimation()
         }
 
+        //Start loading animation and signin user
         binding.buttonSignin.setOnClickListener {
             binding.buttonSignin.startAnimation()
-            signinViewModel.signinUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSigninCompleteListener)
+            signinViewModel.signinUser(binding.textInputEmail.text.toString(), binding.textInputPassword.text.toString(), onSigninCompleteListener)
         }
 
+        //Go to signup fragment
         binding.buttonSignup.setOnClickListener {
             findNavController().navigate(R.id.action_signinFragment_to_signupFragment)
         }
 
+        //Go to login fragment when back button is pressed
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 findNavController().navigate(R.id.action_signinFragment_to_loginFragment)

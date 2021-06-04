@@ -33,24 +33,41 @@ class SignupFragment : Fragment() {
         binding.signup = this
         binding.signupViewModel = signupViewModel
 
+        //Revert loading animation and go to Home
         val onSignupCompleteListener = OnCompleteListener<AuthResult>() { task ->
             if(task.isSuccessful) {
                 val intent = Intent(context, HomeActivity::class.java)
                 startActivity(intent)
+            }else{
+                Toast.makeText(context, context?.getText(R.string.login_error), Toast.LENGTH_SHORT).show()
             }
 
             binding.buttonSignup.revertAnimation()
         }
 
+        //Start loading animation and signup user
         binding.buttonSignup.setOnClickListener {
             binding.buttonSignup.startAnimation()
-            signupViewModel.signupUser(email = binding.textInputEmail.text.toString(), password = binding.textInputPassword.text.toString(), onCompleteListener = onSignupCompleteListener)
+
+            if(binding.textInputPassword.text.toString() == binding.textInputRepeatPassword.text.toString())
+                signupViewModel.signupUser(binding.textInputEmail.text.toString(), binding.textInputPassword.text.toString(), onSignupCompleteListener)
+            else {
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.password_not_match),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                binding.buttonSignup.revertAnimation()
+            }
         }
 
+        //Go to signin fragment
         binding.buttonSignin.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_signinFragment)
         }
 
+        //Go to login fragment when back button is pressed
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 findNavController().navigate(R.id.action_signupFragment_to_loginFragment)

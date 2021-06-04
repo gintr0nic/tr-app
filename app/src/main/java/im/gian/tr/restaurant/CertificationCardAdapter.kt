@@ -44,14 +44,18 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
 
+        //Observe for changes in viewmodel
         restaurantViewModel.certifications.observe(context as RestaurantActivity, certificationsObserver)
     }
 
     override fun onBindViewHolder(holder: CertificationCardViewHolder, position: Int) {
+        //Name
         holder.textViewCertification.text = certificationList!![position].name
 
+        //Image
     }
 
+    //Update certification list when viewmodel data changes
     private val certificationsObserver = Observer<List<Certification>> {
         certificationList = restaurantViewModel.certifications.value
         notifyDataSetChanged()
