@@ -34,9 +34,6 @@ class SavedFragment : Fragment() {
         binding.recyclerViewSaved.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewSaved.adapter = SavedCardAdapter(context)
 
-        //Fetch data
-        homeViewModel.fetchSaved()
-
         return binding.root
     }
 }

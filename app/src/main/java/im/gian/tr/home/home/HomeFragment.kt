@@ -46,10 +46,6 @@ class HomeFragment : Fragment() {
         binding.recyclerViewNear.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewNear.adapter = sortedAdapter
 
-        //Fetch data
-        homeViewModel.fetchSaved()
-        homeViewModel.fetchRestaurants()
-
         return binding.root
     }
 

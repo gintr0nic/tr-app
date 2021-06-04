@@ -26,6 +26,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Fetch data
+        homeViewModel.fetchSaved()
+        homeViewModel.fetchRestaurants()
+
         val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this,R.layout.activity_home)
         val navController = findNavController(R.id.navHostFragment)
 
@@ -57,5 +61,13 @@ class HomeActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        //Fetch data
+        homeViewModel.fetchSaved()
+        homeViewModel.fetchRestaurants()
     }
 }
