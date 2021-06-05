@@ -3,6 +3,7 @@ package im.gian.tr.restaurant.details
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CertificationCardViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.certification_card_view,
             parent, false)
+
         return CertificationCardViewHolder(layout)
     }
 

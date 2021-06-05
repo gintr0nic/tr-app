@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:fitsSystemWindows="true"
-                    android:src="@drawable/restaurant_pic"
+                    android:src="@drawable/restaurant_placeholder"
                     app:layout_collapseMode="parallax" />
 
                 <!--<androidx.appcompat.widget.Toolbar

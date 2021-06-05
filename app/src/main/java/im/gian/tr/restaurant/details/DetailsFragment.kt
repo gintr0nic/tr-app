@@ -1,6 +1,7 @@
 package im.gian.tr.restaurant.details
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,10 @@ class DetailsFragment : Fragment() {
         binding.details = this
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
+
+        //Images recyclerview
+        binding.recyclerViewImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewImages.adapter = ImageCardAdapter(context)
 
         //Certifications recyclerview
         binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
