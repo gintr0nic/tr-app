@@ -1,6 +1,8 @@
 package im.gian.tr.restaurant.details
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +48,10 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
         //Name
         holder.textViewCertification.text = certificationList!![position].name
 
-        //Image
+        //Image TODO: Not working. Fix this.
+        val imageBytes = Base64.decode(certificationList!![position].image, Base64.DEFAULT)
+        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+        holder.imageViewCertification.setImageBitmap(decodedImage)
     }
 
     //Update certification list when viewmodel data changes
