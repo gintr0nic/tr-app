@@ -8,9 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentMenuBinding
 import im.gian.tr.restaurant.RestaurantViewModel
+import im.gian.tr.restaurant.details.ImageCardAdapter
 
 class MenuFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -24,6 +26,10 @@ class MenuFragment : Fragment() {
         binding.menu = this
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
+
+        //Menu recyclerview
+        binding.recyclerViewMenu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewMenu.adapter = MenuAdapter(context)
 
 
         return binding.root

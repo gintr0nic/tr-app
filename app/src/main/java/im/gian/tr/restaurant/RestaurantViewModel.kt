@@ -9,19 +9,38 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.model.Certification
+import im.gian.tr.model.Item
 import im.gian.tr.model.Restaurant
 
 class RestaurantViewModel : ViewModel() {
     private val db = Firebase.firestore
     private val user = Firebase.auth
 
-    //Name
+    //Restaurant
     private val _restaurant = MutableLiveData<Restaurant>(Restaurant("Caricamento..."))
     val restaurant: LiveData<Restaurant>
         get() = _restaurant
 
     fun setRestaurant(restaurant: Restaurant){
         _restaurant.value = restaurant
+    }
+
+    //Menu
+    private val _menu = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...")))
+    val menu: LiveData<List<Item>>
+        get() = _menu
+
+    fun fetchMenu(){
+        val menuList = mutableListOf<Item>()
+
+        db.collection("restaurants/${_restaurant.value?.id}/menu").get().addOnSuccessListener {
+            it.documents.forEachIndexed { index, document ->
+                val item = document.toObject(Item::class.java)!!
+                menuList.add(item)
+                if(index == it.documents.size - 1)  //If last update list with local one
+                    _menu.value = menuList
+            }
+        }
     }
 
     //Saved

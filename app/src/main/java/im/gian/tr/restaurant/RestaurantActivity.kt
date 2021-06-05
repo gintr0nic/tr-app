@@ -26,6 +26,7 @@ class RestaurantActivity : AppCompatActivity() {
         //Set current viewing restaurant and get data
         restaurantViewModel.setRestaurant(Gson().fromJson(intent.getStringExtra("restaurant"), Restaurant::class.java))
         restaurantViewModel.fetchCertifications()
+        restaurantViewModel.fetchMenu()
         restaurantViewModel.setSaved(intent.getBooleanExtra("saved", false))
 
         val binding = DataBindingUtil.setContentView<ActivityRestaurantBinding>(this,R.layout.activity_restaurant)
