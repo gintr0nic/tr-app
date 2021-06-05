@@ -62,6 +62,7 @@
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 app:navGraph="@navigation/navigation_restaurant"
                 app:defaultNavHost="true" />
 
