@@ -4,9 +4,9 @@
     android:id="@+id/cardRestaurant"
     android:layout_width="120dp"
     android:layout_height="120dp"
-    android:layout_marginStart="20dp"
     android:layout_marginTop="10dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
 

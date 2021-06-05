@@ -26,7 +26,7 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
     private val restaurantViewModel: RestaurantViewModel =
         ViewModelProvider(context as RestaurantActivity).get(RestaurantViewModel::class.java)
 
-    private var imageUriList: MutableList<Uri> = mutableListOf(Uri.parse("https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png"))
+    private var imageUriList: MutableList<Uri?> = mutableListOf(null)
 
     var storage = Firebase.storage
 
@@ -41,6 +41,7 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
             list.items.forEachIndexed { index, ref ->
                 ref.downloadUrl.addOnSuccessListener {
                     imageUriList.add(it)
+                    if(index == 0) imageUriList.removeFirst() //Remove null uri
                     if(index == list.items.size - 1) notifyDataSetChanged() //If last update data
                 }
             }
@@ -56,7 +57,8 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
 
     override fun onBindViewHolder(holder: ImageCardViewHolder, position: Int) {
         //Image
-        Glide.with(holder.imageViewRestaurant).load(imageUriList[position]).placeholder(R.drawable.restaurant_placeholder).into(holder.imageViewRestaurant)
+        if(imageUriList[position] != null)
+            Glide.with(holder.imageViewRestaurant).load(imageUriList[position]).placeholder(R.drawable.restaurant_placeholder).into(holder.imageViewRestaurant)
     }
 
     override fun getItemCount(): Int = imageUriList.size
