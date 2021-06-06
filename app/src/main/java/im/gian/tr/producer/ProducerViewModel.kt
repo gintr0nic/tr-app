@@ -24,8 +24,9 @@ class ProducerViewModel : ViewModel() {
 
     fun fetchProducer(id: String?) {
         db.collection("producers").document(id!!).get().addOnSuccessListener {
-            _producer.value = it.toObject(Producer::class.java)
-            _producer.value?.id = it.id
+            val producer = it.toObject(Producer::class.java)
+            producer?.id = it.id
+            _producer.value = producer!!
         }
     }
 

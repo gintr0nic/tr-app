@@ -28,22 +28,20 @@ class ProducerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Set current viewing producer
-        producerViewModel.fetchProducer(intent.getStringExtra("producer"))
-
         val binding = DataBindingUtil.setContentView<ActivityProducerBinding>(this,R.layout.activity_producer)
         val navController = findNavController(R.id.navHostFragment)
 
         binding.producerViewModel = producerViewModel
         binding.lifecycleOwner = this
 
+        //Load producer
+        producerViewModel.fetchProducer(intent.getStringExtra("producer"))
 
-        val producerObserver = Observer<Producer> {
-            if(it.id != ""){
+        //Fetch data only when producer is loaded
+        val producerObserver = Observer<Producer> { producer ->
+            if(producer.id != ""){
                 //Load image
                 storage.reference.child("images/${producerViewModel.producer.value?.id}").list(1).addOnSuccessListener { list->
-                    Log.d("debbb", producerViewModel.producer.value?.id.toString())
-                    Log.d("debbb", list.items.toString())
                     list.items.first().downloadUrl.addOnSuccessListener {
                         Glide.with(binding.producerImageView).load(it).placeholder(R.drawable.restaurant_placeholder).into(binding.producerImageView)
                     }
