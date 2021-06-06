@@ -1,4 +1,4 @@
-package im.gian.tr.restaurant.details
+package im.gian.tr.producer.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
-import im.gian.tr.databinding.FragmentRestaurantDetailsBinding
-import im.gian.tr.restaurant.RestaurantViewModel
+import im.gian.tr.databinding.FragmentProducerDetailsBinding
+import im.gian.tr.producer.ProducerViewModel
 import im.gian.tr.utils.CertificationCardAdapter
 import im.gian.tr.utils.ImageCardAdapter
 
@@ -21,15 +21,15 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentRestaurantDetailsBinding>(
-            inflater, R.layout.fragment_restaurant_details, container, false)
+        val binding = DataBindingUtil.inflate<FragmentProducerDetailsBinding>(
+            inflater, R.layout.fragment_producer_details, container, false)
 
-        val restaurantViewModel: RestaurantViewModel = ViewModelProvider(context as FragmentActivity).get(
-            RestaurantViewModel::class.java)
+        val producerViewModel: ProducerViewModel = ViewModelProvider(context as FragmentActivity).get(
+            ProducerViewModel::class.java)
 
         binding.details = this
         binding.lifecycleOwner = this
-        binding.restaurantViewModel = restaurantViewModel
+        binding.producerViewModel = producerViewModel
 
         //Images recyclerview
         binding.recyclerViewImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -42,12 +42,12 @@ class DetailsFragment : Fragment() {
         binding.recyclerViewCertifications.isNestedScrollingEnabled = false
 
         //Saved
-        if(restaurantViewModel.saved.value == true)
-            binding.checkBoxRestaurant.isChecked = true
+        if(producerViewModel.saved.value == true)
+            binding.checkBoxProducer.isChecked = true
 
-        binding.checkBoxRestaurant.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked) restaurantViewModel.addSaved()
-            else restaurantViewModel.removeSaved()
+        binding.checkBoxProducer.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) producerViewModel.addSaved()
+            else producerViewModel.removeSaved()
         }
 
         return binding.root

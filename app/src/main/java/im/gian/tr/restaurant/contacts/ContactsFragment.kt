@@ -8,10 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
-import im.gian.tr.databinding.FragmentContactsBinding
-import im.gian.tr.databinding.FragmentDetailsBinding
+import im.gian.tr.databinding.FragmentRestaurantContactsBinding
 import im.gian.tr.restaurant.RestaurantViewModel
 
 class ContactsFragment : Fragment() {
@@ -20,8 +18,8 @@ class ContactsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentContactsBinding>(
-            inflater, R.layout.fragment_contacts, container, false)
+        val binding = DataBindingUtil.inflate<FragmentRestaurantContactsBinding>(
+            inflater, R.layout.fragment_restaurant_contacts, container, false)
 
         val restaurantViewModel: RestaurantViewModel = ViewModelProvider(context as FragmentActivity).get(
             RestaurantViewModel::class.java)
