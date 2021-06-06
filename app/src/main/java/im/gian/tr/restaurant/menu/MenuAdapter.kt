@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -25,7 +26,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
 
     class MenuViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
         val textViewName: TextView = row.findViewById(R.id.textViewName)
-        val textViewIngredients: TextView = row.findViewById(R.id.textViewIngredients)
+        val recyclerViewIngredients: RecyclerView = row.findViewById(R.id.recyclerViewIngredients)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
@@ -45,7 +46,10 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         //Name
         holder.textViewName.text = menu!![position].name
-        holder.textViewIngredients.text = menu!![position].ingredients.toString()
+
+        //Ingredients
+        holder.recyclerViewIngredients.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        holder.recyclerViewIngredients.adapter = IngredientAdapter(menu!![position].ingredients)
 
     }
 

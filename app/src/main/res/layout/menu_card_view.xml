@@ -23,12 +23,10 @@
                 android:textSize="18sp"
                 android:text="Pizza Margherita"/>
 
-            <TextView
-                android:id="@+id/textViewIngredients"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="pomodoro, aglio, origano"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
