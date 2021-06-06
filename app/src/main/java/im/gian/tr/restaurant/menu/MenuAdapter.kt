@@ -1,4 +1,4 @@
-package im.gian.tr.utils
+package im.gian.tr.restaurant.menu
 
 import android.content.Context
 import android.view.LayoutInflater

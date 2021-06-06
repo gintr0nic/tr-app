@@ -1,4 +1,4 @@
-package im.gian.tr.utils
+package im.gian.tr.restaurant.details
 
 import android.content.Context
 import android.graphics.BitmapFactory

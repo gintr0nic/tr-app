@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentRestaurantMenuBinding
 import im.gian.tr.restaurant.RestaurantViewModel
-import im.gian.tr.utils.MenuAdapter
 
 class MenuFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
