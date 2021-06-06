@@ -22,8 +22,11 @@ class ProducerViewModel : ViewModel() {
     val producer: LiveData<Producer>
         get() = _producer
 
-    fun setProducer(producer: Producer){
-        _producer.value = producer
+    fun fetchProducer(id: String?) {
+        db.collection("producers").document(id!!).get().addOnSuccessListener {
+            _producer.value = it.toObject(Producer::class.java)
+            _producer.value?.id = it.id
+        }
     }
 
     //Menu

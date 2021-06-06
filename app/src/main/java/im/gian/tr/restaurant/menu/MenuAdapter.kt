@@ -49,7 +49,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
 
         //Ingredients
         holder.recyclerViewIngredients.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        holder.recyclerViewIngredients.adapter = IngredientAdapter(menu!![position].ingredients)
+        holder.recyclerViewIngredients.adapter = IngredientAdapter(context, menu!![position].ingredients)
 
     }
 

@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentProducerDetailsBinding
 import im.gian.tr.producer.ProducerViewModel
-import im.gian.tr.restaurant.details.CertificationCardAdapter
-import im.gian.tr.restaurant.details.ImageCardAdapter
+import im.gian.tr.producer.details.CertificationCardAdapter
 
 class DetailsFragment : Fragment() {
     override fun onCreateView(

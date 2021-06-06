@@ -28,8 +28,8 @@ class ProductsFragment : Fragment() {
         binding.producerViewModel = producerViewModel
 
         //Menu recyclerview
-        binding.recyclerViewProducts.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerViewProducts.adapter = MenuAdapter(context)
+        //binding.recyclerViewProducts.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        //binding.recyclerViewProducts.adapter = MenuAdapter(context)
 
 
         return binding.root
