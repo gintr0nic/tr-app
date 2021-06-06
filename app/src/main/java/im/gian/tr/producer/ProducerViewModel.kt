@@ -27,7 +27,7 @@ class ProducerViewModel : ViewModel() {
     }
 
     //Menu
-    private val _products = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...")))
+    private val _products = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...", listOf())))
     val products: LiveData<List<Item>>
         get() = _products
 

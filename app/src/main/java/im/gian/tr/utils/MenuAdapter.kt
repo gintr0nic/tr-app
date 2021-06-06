@@ -25,6 +25,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
 
     class MenuViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
         val textViewName: TextView = row.findViewById(R.id.textViewName)
+        val textViewIngredients: TextView = row.findViewById(R.id.textViewIngredients)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
@@ -44,6 +45,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         //Name
         holder.textViewName.text = menu!![position].name
+        holder.textViewIngredients.text = menu!![position].ingredients.toString()
 
     }
 

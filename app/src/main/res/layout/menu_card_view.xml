@@ -24,7 +24,7 @@
                 android:text="Pizza Margherita"/>
 
             <TextView
-                android:id="@+id/textViewRestaurantCity"
+                android:id="@+id/textViewIngredients"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"

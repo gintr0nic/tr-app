@@ -26,7 +26,7 @@ class RestaurantViewModel : ViewModel() {
     }
 
     //Menu
-    private val _menu = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...")))
+    private val _menu = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...", listOf())))
     val menu: LiveData<List<Item>>
         get() = _menu
 
