@@ -27,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Fetch data
+        homeViewModel.fetchUserType()
         homeViewModel.fetchSaved()
         homeViewModel.fetchRestaurants()
 

@@ -17,6 +17,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
 import im.gian.tr.model.Restaurant
+import im.gian.tr.model.UserType
 
 class HomeViewModel : ViewModel() {
     private val db = Firebase.firestore
@@ -31,19 +32,32 @@ class HomeViewModel : ViewModel() {
         _titleTextRes.value = textRes
     }
 
+    //User type
+    private val _userType = MutableLiveData<UserType>(UserType.USER)
+    val userType: LiveData<UserType>
+        get() = _userType
+
+    fun fetchUserType(){
+        db.collection("users").document(user.uid.toString()).get().addOnSuccessListener {
+            when(it.get("type")){
+                "user" -> _userType.value = UserType.USER
+                "restaurant" -> _userType.value = UserType.RESTAURANT
+                "producer" -> _userType.value = UserType.PRODUCER
+            }
+        }
+    }
+
     //User location
     private val _userLocation = MutableLiveData<Location>()
     val userLocation: LiveData<Location>
         get() = _userLocation
 
     fun fetchLocation(context: Context){
-        Log.d("locx", "fetch location")
         val locationClient = LocationServices.getFusedLocationProviderClient(context)
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
                     if (location != null) {
-                        Log.d("locx", "got location")
                         _userLocation.value = location
                     }
                 }
