@@ -1,6 +1,7 @@
 package im.gian.tr.home
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.PopupMenu
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -73,5 +75,17 @@ class HomeActivity : AppCompatActivity() {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 homeViewModel.fetchLocation(this)
         }
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+
+        AlertDialog.Builder(this)
+            .setTitle(R.string.exit)
+            .setMessage(R.string.sure_exit)
+            .setPositiveButton(R.string.yes) { _, _ ->
+                finish()
+            }
+            .setNegativeButton(R.string.no, null).show()
     }
 }

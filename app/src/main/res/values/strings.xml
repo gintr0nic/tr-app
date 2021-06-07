@@ -51,4 +51,10 @@
     <string name="not_available">Non ancora disponibile!</string>
     <string name="login_error">Login fallito! Controlla i dati</string>
     <string name="password_not_match">Le password non corrispondono!</string>
+
+    <string name="exit">Esci</string>
+    <string name="sure_exit">Sei sicuro di voler uscire?</string>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 </resources>
