@@ -27,9 +27,9 @@ class MapFragment : Fragment() {
         }
 
         //Move camera to first restaurant in list
-        val newPos = homeViewModel.restaurants.value?.get(0)?.location
+        val newPos = homeViewModel.userLocation.value
         if (newPos != null) {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(newPos.latitude,newPos.longitude)))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(newPos.latitude,newPos.longitude), 12.0f))
         }
     }
 
