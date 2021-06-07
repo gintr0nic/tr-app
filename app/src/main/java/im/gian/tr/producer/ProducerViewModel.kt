@@ -77,6 +77,7 @@ class ProducerViewModel : ViewModel() {
         ids?.forEachIndexed { index, s ->
             db.collection("certifications").document(s).get().addOnSuccessListener { document ->
                 val certification = document.toObject(Certification::class.java)!!
+                certification.id = document.id
                 certificationList.add(certification)
                 if(index == ids.size - 1)  //If last update list with local one
                     _certifications.value = certificationList

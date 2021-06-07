@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
@@ -52,10 +53,12 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
         //Name
         holder.textViewCertification.text = certificationList!![position].name
 
-        //Image TODO: Not working. Fix this.
-        val imageBytes = Base64.decode(certificationList!![position].image, Base64.DEFAULT)
-        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-        holder.imageViewCertification.setImageBitmap(decodedImage)
+        //Image
+        val certId = certificationList!![position].id
+        if(certId != "")
+            storage.reference.child("certifications/${certId}.jpg").downloadUrl.addOnSuccessListener {
+                Glide.with(holder.imageViewCertification).load(it).placeholder(R.drawable.restaurant_placeholder).into(holder.imageViewCertification)
+            }
     }
 
     //Update certification list when viewmodel data changes
