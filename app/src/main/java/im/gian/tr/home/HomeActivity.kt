@@ -26,16 +26,16 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Fetch data
-        homeViewModel.fetchUserType()
-        homeViewModel.fetchSaved()
-        homeViewModel.fetchRestaurants()
-
         //Check and/or request location permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
             homeViewModel.fetchLocation(this)
         else
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),PERMISSION_REQUEST_LOCATION)
+
+        //Fetch data
+        homeViewModel.fetchUserType()
+        homeViewModel.fetchSaved()
+        homeViewModel.fetchRestaurants()
 
         val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this,R.layout.activity_home)
         val navController = findNavController(R.id.navHostFragment)
