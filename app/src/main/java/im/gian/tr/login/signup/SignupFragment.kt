@@ -33,8 +33,8 @@ class SignupFragment : Fragment() {
         binding.signup = this
         binding.signupViewModel = signupViewModel
 
-        //Revert loading animation and go to Home
-        val onSignupCompleteListener = OnCompleteListener<AuthResult>() { task ->
+        //If setup is successful go to home
+        val onSetupUserCompleteListener = OnCompleteListener<Void> { task ->
             if(task.isSuccessful) {
                 val intent = Intent(context, HomeActivity::class.java)
                 startActivity(intent)
@@ -43,6 +43,16 @@ class SignupFragment : Fragment() {
             }
 
             binding.buttonSignup.revertAnimation()
+        }
+
+        //If signup is successful then setup user
+        val onSignupCompleteListener = OnCompleteListener<AuthResult>() { task ->
+            if(task.isSuccessful) {
+                signupViewModel.setupUser(onSetupUserCompleteListener)
+            }else{
+                Toast.makeText(context, context?.getText(R.string.login_error), Toast.LENGTH_SHORT).show()
+                binding.buttonSignup.revertAnimation()
+            }
         }
 
         //Start loading animation and signup user
