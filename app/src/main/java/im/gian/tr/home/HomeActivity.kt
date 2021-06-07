@@ -21,7 +21,7 @@ import me.ibrahimsn.lib.OnItemSelectedListener
 
 class HomeActivity : AppCompatActivity() {
     val homeViewModel: HomeViewModel by viewModels()
-    private lateinit var locationClient: FusedLocationProviderClient
+    val PERMISSION_REQUEST_LOCATION = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,12 @@ class HomeActivity : AppCompatActivity() {
         //Fetch data
         homeViewModel.fetchSaved()
         homeViewModel.fetchRestaurants()
+
+        //Check and/or request location permission
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            homeViewModel.fetchLocation(this)
+        else
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),PERMISSION_REQUEST_LOCATION)
 
         val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this,R.layout.activity_home)
         val navController = findNavController(R.id.navHostFragment)
@@ -49,18 +55,6 @@ class HomeActivity : AppCompatActivity() {
                 R.id.savedFragment -> homeViewModel.setTitleTextRes(R.string.saved)
             }
         }
-
-        //Check location permission and get last known coarse location
-        locationClient = LocationServices.getFusedLocationProviderClient(this)
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationClient.lastLocation
-                .addOnSuccessListener { location : Location? ->
-                    Log.d("location",location.toString())
-                    if (location != null) {
-                        homeViewModel.setUserLocation(location)
-                    }
-                }
-        }
     }
 
     override fun onResume() {
@@ -69,5 +63,14 @@ class HomeActivity : AppCompatActivity() {
         //Fetch data
         homeViewModel.fetchSaved()
         homeViewModel.fetchRestaurants()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if(requestCode == PERMISSION_REQUEST_LOCATION) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+                homeViewModel.fetchLocation(this)
+        }
     }
 }

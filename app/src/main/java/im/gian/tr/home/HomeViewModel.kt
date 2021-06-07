@@ -1,9 +1,16 @@
 package im.gian.tr.home
 
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
 import android.location.Location
+import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
@@ -29,8 +36,18 @@ class HomeViewModel : ViewModel() {
     val userLocation: LiveData<Location>
         get() = _userLocation
 
-    fun setUserLocation(location: Location){
-        _userLocation.value = location
+    fun fetchLocation(context: Context){
+        Log.d("locx", "fetch location")
+        val locationClient = LocationServices.getFusedLocationProviderClient(context)
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationClient.lastLocation
+                .addOnSuccessListener { location : Location? ->
+                    if (location != null) {
+                        Log.d("locx", "got location")
+                        _userLocation.value = location
+                    }
+                }
+        }
     }
 
     //Restaurants
