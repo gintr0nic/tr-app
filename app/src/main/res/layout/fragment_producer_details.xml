@@ -37,6 +37,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:button="@drawable/checkbox_selector"
+                android:visibility="invisible"
                 app:buttonTint="@color/primary"/>
         </LinearLayout>
 
