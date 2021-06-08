@@ -2,6 +2,7 @@ package im.gian.tr.producer.details
 
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,7 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
     private val producerViewModel: ProducerViewModel =
         ViewModelProvider(context as ProducerActivity).get(ProducerViewModel::class.java)
 
-    private var imageUriList: MutableList<Uri?> = mutableListOf(null)
+    private var imageUriList: List<Uri?> = listOf(null)
 
     var storage = Firebase.storage
 
@@ -32,12 +33,16 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
 
+        val newImages = mutableListOf<Uri?>()
+
         storage.reference.child("images/${producerViewModel.producer.value?.id}").list(10).addOnSuccessListener { list->
             list.items.forEachIndexed { index, ref ->
                 ref.downloadUrl.addOnSuccessListener {
-                    imageUriList.add(it)
-                    if(index == 0) imageUriList.removeFirst() //Remove null uri
-                    if(index == list.items.size - 1) notifyDataSetChanged() //If last update data
+                    newImages.add(it)
+                    if(index == list.items.size - 1) { //If last update data
+                        imageUriList = newImages
+                        notifyDataSetChanged()
+                    }
                 }
             }
         }
