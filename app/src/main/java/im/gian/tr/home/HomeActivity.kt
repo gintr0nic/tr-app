@@ -7,23 +7,29 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.transition.Visibility
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import im.gian.tr.R
 import im.gian.tr.databinding.ActivityHomeBinding
+import im.gian.tr.model.Restaurant
+import im.gian.tr.model.UserType
 import me.ibrahimsn.lib.OnItemSelectedListener
 
 class HomeActivity : AppCompatActivity() {
     val homeViewModel: HomeViewModel by viewModels()
-    val PERMISSION_REQUEST_LOCATION = 0
+    private val PERMISSION_REQUEST_LOCATION = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +64,13 @@ class HomeActivity : AppCompatActivity() {
                 R.id.savedFragment -> homeViewModel.setTitleTextRes(R.string.saved)
             }
         }
+
+        //Show edit profile button if user is restaurant or producer
+        val userTypeObserver = Observer<UserType> {
+            if(homeViewModel.userType.value == UserType.RESTAURANT || homeViewModel.userType.value == UserType.PRODUCER)
+                binding.imageViewProfile.visibility = View.VISIBLE
+        }
+        homeViewModel.userType.observe(this, userTypeObserver)
     }
 
     override fun onResume() {

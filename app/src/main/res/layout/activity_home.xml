@@ -37,12 +37,21 @@
                 android:textAlignment="center"
                 android:text="@{context.getString(homeViewModel.titleTextRes)}"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:src="@drawable/ic_user"
-                app:tint="@color/black"/>
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="64dp">
+
+                <ImageView
+                    android:id="@+id/imageViewProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_user"
+                    android:visibility="gone"
+                    app:tint="@color/black"/>
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <RelativeLayout
