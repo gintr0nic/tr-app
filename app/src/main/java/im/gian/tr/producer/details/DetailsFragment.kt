@@ -41,13 +41,13 @@ class DetailsFragment : Fragment() {
         binding.recyclerViewCertifications.isNestedScrollingEnabled = false
 
         //Saved
-        if(producerViewModel.saved.value == true)
+        /*if(producerViewModel.saved.value == true)
             binding.checkBoxProducer.isChecked = true
 
         binding.checkBoxProducer.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) producerViewModel.addSaved()
             else producerViewModel.removeSaved()
-        }
+        }*/
 
         return binding.root
     }

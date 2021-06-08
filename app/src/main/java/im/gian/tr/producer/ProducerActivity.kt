@@ -48,7 +48,6 @@ class ProducerActivity : AppCompatActivity() {
                 }
 
                 //Load data
-                producerViewModel.fetchProducts()
                 producerViewModel.fetchCertifications()
             }
         }

@@ -30,26 +30,8 @@ class ProducerViewModel : ViewModel() {
         }
     }
 
-    //Menu
-    private val _products = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...", listOf())))
-    val products: LiveData<List<Item>>
-        get() = _products
-
-    fun fetchProducts(){
-        val menuList = mutableListOf<Item>()
-
-        db.collection("producers/${_producer.value?.id}/products").get().addOnSuccessListener {
-            it.documents.forEachIndexed { index, document ->
-                val item = document.toObject(Item::class.java)!!
-                menuList.add(item)
-                if(index == it.documents.size - 1)  //If last update list with local one
-                    _products.value = menuList
-            }
-        }
-    }
-
     //Saved
-    private val _saved = MutableLiveData<Boolean>(false)
+    /*private val _saved = MutableLiveData<Boolean>(false)
     val saved: LiveData<Boolean>
         get() = _saved
 
@@ -63,7 +45,7 @@ class ProducerViewModel : ViewModel() {
 
     fun removeSaved(){
         db.collection("users").document(user.uid!!).update("saved", FieldValue.arrayRemove("producers/${producer.value?.id}"))
-    }
+    }*/
 
     //Certifications
     private val _certifications = MutableLiveData<List<Certification>>(listOf(Certification("Caricamento...")))

@@ -27,9 +27,9 @@ class ProductsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.producerViewModel = producerViewModel
 
-        //Menu recyclerview
-        //binding.recyclerViewProducts.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        //binding.recyclerViewProducts.adapter = MenuAdapter(context)
+        //Products recyclerview
+        binding.recyclerViewProducts.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewProducts.adapter = ProductCardAdapter(context)
 
 
         return binding.root

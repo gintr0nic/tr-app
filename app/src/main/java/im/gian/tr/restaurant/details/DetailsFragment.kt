@@ -40,13 +40,13 @@ class DetailsFragment : Fragment() {
         binding.recyclerViewCertifications.isNestedScrollingEnabled = false
 
         //Saved
-        /*if(restaurantViewModel.saved.value == true)
+        if(restaurantViewModel.saved.value == true)
             binding.checkBoxRestaurant.isChecked = true
 
         binding.checkBoxRestaurant.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) restaurantViewModel.addSaved()
             else restaurantViewModel.removeSaved()
-        }*/
+        }
 
         return binding.root
     }
