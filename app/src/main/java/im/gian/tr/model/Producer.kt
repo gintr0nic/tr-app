@@ -6,9 +6,9 @@ import java.io.Serializable
 import java.math.RoundingMode
 
 data class Producer (
-    val name: String = "",
-    val city: String = "",
-    val description: String = "",
+    var name: String = "",
+    var city: String = "",
+    var description: String = "",
     val certifications: List<String> = listOf(),
     val products: List<String> = listOf(),
     var id: String = ""

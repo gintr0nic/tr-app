@@ -23,7 +23,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="@string/prodotti" />
+            android:text="@string/products" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewProducts"

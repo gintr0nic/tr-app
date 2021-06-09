@@ -17,7 +17,7 @@ class ProducerViewModel : ViewModel() {
     private val db = Firebase.firestore
     private val user = Firebase.auth
 
-    //Restaurant
+    //Producer
     private val _producer = MutableLiveData<Producer>(Producer("Caricamento..."))
     val producer: LiveData<Producer>
         get() = _producer
@@ -28,6 +28,30 @@ class ProducerViewModel : ViewModel() {
             producer?.id = it.id
             _producer.value = producer!!
         }
+    }
+
+    fun editProducerName(newName: String) {
+        val prod = _producer.value
+        prod?.name = newName
+        _producer.value = prod!!
+
+        db.collection("producers").document(_producer.value?.id!!).update("name", newName)
+    }
+
+    fun editProducerCity(newCity: String) {
+        val prod = _producer.value
+        prod?.city = newCity
+        _producer.value = prod!!
+
+        db.collection("producers").document(_producer.value?.id!!).update("city", newCity)
+    }
+
+    fun editProducerDescription(newDes: String) {
+        val prod = _producer.value
+        prod?.description = newDes
+        _producer.value = prod!!
+
+        db.collection("producers").document(_producer.value?.id!!).update("description", newDes)
     }
 
     //Saved
