@@ -6,11 +6,11 @@ import java.io.Serializable
 import java.math.RoundingMode
 
 data class Restaurant (
-    val name: String = "",
-    val city: String = "",
+    var name: String = "",
+    var city: String = "",
     val address: String = "",
     val cellphone: String = "",
-    val description: String = "",
+    var description: String = "",
     val certifications: List<String> = listOf(),
     val location: GeoPoint = GeoPoint(0.0,0.0),
     var id: String = ""

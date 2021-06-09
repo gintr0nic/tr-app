@@ -25,6 +25,30 @@ class RestaurantViewModel : ViewModel() {
         _restaurant.value = restaurant
     }
 
+    fun editRestaurantName(newName: String) {
+        val res = _restaurant.value
+        res?.name = newName
+        _restaurant.value = res!!
+
+        db.collection("restaurants").document(_restaurant.value?.id!!).update("name", newName)
+    }
+
+    fun editRestaurantCity(newCity: String) {
+        val res = _restaurant.value
+        res?.city = newCity
+        _restaurant.value = res!!
+
+        db.collection("restaurants").document(_restaurant.value?.id!!).update("city", newCity)
+    }
+
+    fun editRestaurantDescription(newDes: String) {
+        val res = _restaurant.value
+        res?.description = newDes
+        _restaurant.value = res!!
+
+        db.collection("restaurants").document(_restaurant.value?.id!!).update("description", newDes)
+    }
+
     //Menu
     private val _menu = MutableLiveData<List<Item>>(mutableListOf(Item("Caricamento...", listOf())))
     val menu: LiveData<List<Item>>
