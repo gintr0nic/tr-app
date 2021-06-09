@@ -34,6 +34,10 @@ class LoginFragment : Fragment() {
             Toast.makeText(context, context?.getText(R.string.not_available), Toast.LENGTH_SHORT).show()
         }
 
+        binding.buttonRestaurantSignup.setOnClickListener {
+            Toast.makeText(context, context?.getText(R.string.not_available), Toast.LENGTH_SHORT).show()
+        }
+
         return binding.root
     }
 }

@@ -56,6 +56,11 @@ class SigninFragment : Fragment() {
             findNavController().navigate(R.id.action_signinFragment_to_signupFragment)
         }
 
+        //Button forgot
+        binding.buttonForgot.setOnClickListener {
+            Toast.makeText(context, context?.getText(R.string.not_available), Toast.LENGTH_SHORT).show()
+        }
+
         //Go to login fragment when back button is pressed
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
