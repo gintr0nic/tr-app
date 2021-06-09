@@ -11,7 +11,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -103,5 +105,10 @@ class HomeViewModel : ViewModel() {
                 }
             }
         }
+    }
+
+    //Profile
+    fun getUserRestaurant(onSuccessListener: OnSuccessListener<DocumentSnapshot>) {
+        db.collection("restaurants").document(user.uid!!).get().addOnSuccessListener(onSuccessListener)
     }
 }

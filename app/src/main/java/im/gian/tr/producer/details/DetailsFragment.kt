@@ -30,6 +30,13 @@ class DetailsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.producerViewModel = producerViewModel
 
+        //Edit button
+        if(activity?.intent?.getBooleanExtra("edit", false) == true){
+            binding.buttonEditName.visibility = View.VISIBLE
+            binding.buttonEditCity.visibility = View.VISIBLE
+            binding.buttonEditDescription.visibility = View.VISIBLE
+        }
+
         //Images recyclerview
         binding.recyclerViewImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewImages.adapter = ImageCardAdapter(context)

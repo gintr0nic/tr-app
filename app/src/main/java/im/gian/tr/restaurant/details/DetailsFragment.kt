@@ -29,6 +29,14 @@ class DetailsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
 
+        //Edit button
+        if(activity?.intent?.getBooleanExtra("edit", false) == true){
+            binding.buttonEditName.visibility = View.VISIBLE
+            binding.buttonEditCity.visibility = View.VISIBLE
+            binding.buttonEditDescription.visibility = View.VISIBLE
+            binding.checkBoxRestaurant.visibility = View.GONE
+        }
+
         //Images recyclerview
         binding.recyclerViewImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewImages.adapter = ImageCardAdapter(context)
