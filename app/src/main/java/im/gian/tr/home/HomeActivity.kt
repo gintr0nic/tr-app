@@ -29,6 +29,7 @@ import im.gian.tr.R
 import im.gian.tr.databinding.ActivityHomeBinding
 import im.gian.tr.model.Restaurant
 import im.gian.tr.model.UserType
+import im.gian.tr.producer.ProducerActivity
 import im.gian.tr.restaurant.RestaurantActivity
 import me.ibrahimsn.lib.OnItemSelectedListener
 
@@ -96,7 +97,7 @@ class HomeActivity : AppCompatActivity() {
 
             //If user is producer start producer acitvity in edit mode
             if(homeViewModel.userType.value == UserType.PRODUCER){
-                val intent = Intent(this, RestaurantActivity::class.java)
+                val intent = Intent(this, ProducerActivity::class.java)
                 intent.putExtra("producer", user.uid)
                 intent.putExtra("edit", true)
                 startActivity(intent)
