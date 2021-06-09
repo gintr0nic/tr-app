@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.google.gson.Gson
@@ -29,6 +30,7 @@ class SavedCardAdapter(private val context: Context?) : RecyclerView.Adapter<Sav
     private var savedList: List<Restaurant>? = homeViewModel.saved.value
 
     class SavedCardViewHolder(private val row: View) : RecyclerView.ViewHolder(row) {
+        val cardSaved: MaterialCardView = row.findViewById(R.id.cardSaved)
         val textViewSavedName: TextView = row.findViewById(R.id.textViewSavedName)
         val textViewSavedCity: TextView = row.findViewById(R.id.textViewSavedCity)
         val imageViewSaved: ImageView = row.findViewById(R.id.imageViewSaved)
@@ -54,6 +56,15 @@ class SavedCardAdapter(private val context: Context?) : RecyclerView.Adapter<Sav
     }
 
     override fun onBindViewHolder(holder: SavedCardViewHolder, position: Int) {
+        //Card
+        holder.cardSaved.setOnClickListener {
+            val intent = Intent(context, RestaurantActivity::class.java)
+            intent.putExtra("restaurant",Gson().toJson(savedList!![position]))
+            intent.putExtra("saved", true)
+
+            context?.startActivity(intent)
+        }
+
         //Name
         holder.textViewSavedName.text = savedList!![position].name
 
