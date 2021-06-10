@@ -1,10 +1,10 @@
-<p align="center"><img src="https://github.com/mrgian/terremoti-api/raw/master/images/icons/icon.png" height=100></p>
+<p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/app/src/main/ic_launcher-playstore.png" height=180></p>
 <h1 align="center">TR</h1>
 <h3 align="center">
 App per informazioni sui ristoranti
 </h3>
 
-<p align="center"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="32%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="32%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="32%"></p>
+<p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_2.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_6.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_7.png" width="20%"></p>
 
 ## Descrizione
 TR è un'app che ha l'obbiettivo di creare un rete di conoscenze tra consumatori finali, ristoratori, imprese di produzione di materie prime o prodotti trasformati.
@@ -29,11 +29,15 @@ La differenza fra utenti e ristoratori o produttori è che questi ultimi hanno l
 che saranno poi visibili agli utenti quando cercano un ristorante o vogliono conoscere il produttore di un ingrediente sul menu.
 
 ## Login
+<img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_10.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_11.png" width="20%">
+
 Per usare TR è necessario registrarsi tramite email, oppure loggarsi utilizzando uno degli account demo mostrati qui sotto.
 
 Il login tramite Google/Facebook non è al momento disponibile, ma verrà aggiunto prossimamente.
 
 ### Account demo
+<img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_12.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_13.png" width="20%">
+
 Per loggarsi con uno di questi account è neccessario toccare sul pulsante *Usa l'email* nella schermata di benvenuto, e in seguito toccare sul pulsante *Login* in basso
 
 |Tipo        |Email                    |Password                |Nota                                                                                    |
@@ -56,7 +60,7 @@ Firestore Database viene utilizzato per memorizzare:
 - il menu dei ristoranti, compreso l'id produttore per ogni singolo ingrediente (per reindirizzare l'utente quando vuole conoscere il produttore)
 
 
-<img src="https://github.com/mrgian/terremoti-api/raw/master/images/uml/use_case_diagram.png" width="50%">
+<img src="https://github.com/mrgian/tr-app-android/raw/master/images/esempio_documento.PNG" width="80%">
 
 *Esempio di documento Firestore usato per memorizzare le informazioni su un ristorante*
 
