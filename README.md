@@ -37,7 +37,7 @@ Il login tramite Google/Facebook non è al momento disponibile, ma verrà aggiun
 |Tipo        |Email                    |Password                |Nota                                                                                    |
 |------------|-------------------------|------------------------|----------------------------------------------------------------------------------------|
 |Utente      |`utentedemo@gian.im `    |`demodemo`              |                                                                                        |
-|Ristoratore |`ristoratoredemo@gian.im`|`demodemo`              |Ha la possibiltà di modificare la sua pagina con il pulsante in alto a destra nella home|
+|Ristorante  |`ristorantedemo@gian.im` |`demodemo`              |Ha la possibiltà di modificare la sua pagina con il pulsante in alto a destra nella home|
 |Produttore  |`produttoredemo@gian.im` |`demodemo`              |Ha la possibiltà di modificare la sua pagina con il pulsante in alto a destra nella home|
 
 ## Backend
