@@ -34,6 +34,8 @@ Per usare TR è necessario registrarsi tramite email, oppure loggarsi utilizzand
 Il login tramite Google/Facebook non è al momento disponibile, ma verrà aggiunto prossimamente.
 
 ### Account demo
+Per loggarsi con uno di questi account è neccessario toccare sul pulsante *Usa l'email* nella schermata di benvenuto, e in seguito toccare sul pulsante *Login* in basso
+
 |Tipo        |Email                    |Password                |Nota                                                                                    |
 |------------|-------------------------|------------------------|----------------------------------------------------------------------------------------|
 |Utente      |`utentedemo@gian.im `    |`demodemo`              |                                                                                        |
