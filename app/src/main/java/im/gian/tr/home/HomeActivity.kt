@@ -129,7 +129,7 @@ class HomeActivity : AppCompatActivity() {
             .setTitle(R.string.exit)
             .setMessage(R.string.sure_exit)
             .setPositiveButton(R.string.yes) { _, _ ->
-                finish()
+                finishAffinity()
             }
             .setNegativeButton(R.string.no, null).show()
     }
