@@ -4,22 +4,24 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
-import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
 import im.gian.tr.model.Restaurant
 import im.gian.tr.model.UserType
+
 
 class HomeViewModel : ViewModel() {
     private val db = Firebase.firestore
@@ -59,7 +61,18 @@ class HomeViewModel : ViewModel() {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
-                    if (location != null) {
+                    if (location == null) {
+                        val locationCallback = object : LocationCallback() {
+                            override fun onLocationResult(locationResult: LocationResult?) {
+                                if (locationResult != null && locationResult.locations.isNotEmpty()) {
+                                    val newLocation = locationResult.locations[0]
+                                    _userLocation.value = newLocation
+                                }
+                            }
+                        }
+
+                        locationClient.requestLocationUpdates(LocationRequest.create(), locationCallback, null)
+                    } else {
                         _userLocation.value = location
                     }
                 }

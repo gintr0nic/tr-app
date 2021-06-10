@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "im.gian.tr"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
