@@ -1,6 +1,5 @@
 package im.gian.tr.restaurant.details
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater

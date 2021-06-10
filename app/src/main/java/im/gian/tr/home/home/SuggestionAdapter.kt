@@ -1,6 +1,5 @@
 package im.gian.tr.home.home
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -12,7 +11,6 @@ import android.widget.Filterable
 import android.widget.TextView
 import com.google.gson.Gson
 import im.gian.tr.R
-import im.gian.tr.home.HomeActivity
 import im.gian.tr.model.Restaurant
 import im.gian.tr.restaurant.RestaurantActivity
 
@@ -33,6 +31,7 @@ class SuggestionAdapter(context: Context, private val layoutResource: Int, priva
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(layoutResource, parent, false)
 
+        //Start restaurant activity when user taps on search result
         view.setOnClickListener {
             val intent = Intent(context, RestaurantActivity::class.java)
             intent.putExtra("restaurant", Gson().toJson(restaurantList[position]))
@@ -43,12 +42,14 @@ class SuggestionAdapter(context: Context, private val layoutResource: Int, priva
             context.startActivity(intent)
         }
 
+        //Restaurant name textview
         val name = view.findViewById<TextView>(R.id.suggestionName)
         name.text = restaurantList[position].name
 
         return view
     }
 
+    //Perform restaurant list filtering
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults) {

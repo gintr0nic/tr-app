@@ -3,14 +3,12 @@ package im.gian.tr.intro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import im.gian.tr.R
 import im.gian.tr.databinding.ActivityIntroBinding
 import im.gian.tr.login.LoginActivity
-import me.relex.circleindicator.CircleIndicator
 
 class IntroActivity : AppCompatActivity() {
 

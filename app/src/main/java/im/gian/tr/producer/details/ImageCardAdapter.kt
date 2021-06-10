@@ -2,7 +2,6 @@ package im.gian.tr.producer.details
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,6 @@ import com.google.firebase.storage.ktx.storage
 import im.gian.tr.R
 import im.gian.tr.producer.ProducerActivity
 import im.gian.tr.producer.ProducerViewModel
-import im.gian.tr.restaurant.RestaurantActivity
-import im.gian.tr.restaurant.RestaurantViewModel
 
 class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<ImageCardAdapter.ImageCardViewHolder>() {
     private val producerViewModel: ProducerViewModel =
@@ -35,6 +32,7 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
 
         val newImages = mutableListOf<Uri?>()
 
+        //Fetch image uris from db
         storage.reference.child("images/${producerViewModel.producer.value?.id}").list(10).addOnSuccessListener { list->
             list.items.forEachIndexed { index, ref ->
                 ref.downloadUrl.addOnSuccessListener {

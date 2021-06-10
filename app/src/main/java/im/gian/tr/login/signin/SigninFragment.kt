@@ -14,10 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import im.gian.tr.R
-import im.gian.tr.databinding.FragmentLoginBinding
 import im.gian.tr.databinding.FragmentSigninBinding
 import im.gian.tr.home.HomeActivity
-import im.gian.tr.login.signup.SignupViewModel
 
 class SigninFragment : Fragment() {
     val signinViewModel : SigninViewModel by viewModels()

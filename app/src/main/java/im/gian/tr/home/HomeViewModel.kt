@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
@@ -61,6 +60,7 @@ class HomeViewModel : ViewModel() {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
+                    //If last location is null request location update
                     if (location == null) {
                         val locationCallback = object : LocationCallback() {
                             override fun onLocationResult(locationResult: LocationResult?) {

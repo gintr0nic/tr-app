@@ -13,8 +13,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentSignupBinding
 import im.gian.tr.home.HomeActivity

@@ -1,27 +1,18 @@
 package im.gian.tr.home
 
 import android.Manifest
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.transition.Visibility
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
@@ -31,7 +22,6 @@ import im.gian.tr.model.Restaurant
 import im.gian.tr.model.UserType
 import im.gian.tr.producer.ProducerActivity
 import im.gian.tr.restaurant.RestaurantActivity
-import me.ibrahimsn.lib.OnItemSelectedListener
 
 class HomeActivity : AppCompatActivity() {
     val homeViewModel: HomeViewModel by viewModels()
@@ -116,6 +106,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
+        //Fetch location if user accepted permission
         if(requestCode == PERMISSION_REQUEST_LOCATION) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 homeViewModel.fetchLocation(this)
@@ -123,8 +114,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //super.onBackPressed()
-
+        //Warn user before exit
         AlertDialog.Builder(this)
             .setTitle(R.string.exit)
             .setMessage(R.string.sure_exit)

@@ -2,8 +2,6 @@ package im.gian.tr.producer.details
 
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +17,6 @@ import im.gian.tr.R
 import im.gian.tr.model.Certification
 import im.gian.tr.producer.ProducerActivity
 import im.gian.tr.producer.ProducerViewModel
-import im.gian.tr.restaurant.RestaurantActivity
-import im.gian.tr.restaurant.RestaurantViewModel
 
 class CertificationCardAdapter(private val context: Context?) : RecyclerView.Adapter<CertificationCardAdapter.CertificationCardViewHolder>() {
     private val producerViewModel: ProducerViewModel =

@@ -32,6 +32,7 @@ class ImageCardAdapter(private val context: Context?) : RecyclerView.Adapter<Ima
 
         val newImages = mutableListOf<Uri?>()
 
+        //Fetch image uris from db
         storage.reference.child("images/${restaurantViewModel.restaurant.value?.id}").list(10).addOnSuccessListener { list->
             list.items.forEachIndexed { index, ref ->
                 ref.downloadUrl.addOnSuccessListener {

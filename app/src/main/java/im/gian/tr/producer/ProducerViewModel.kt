@@ -1,17 +1,13 @@
 package im.gian.tr.producer
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import im.gian.tr.model.Certification
-import im.gian.tr.model.Item
 import im.gian.tr.model.Producer
-import im.gian.tr.model.Restaurant
 
 class ProducerViewModel : ViewModel() {
     private val db = Firebase.firestore
