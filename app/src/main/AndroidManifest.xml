@@ -30,10 +30,6 @@
             android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".restaurant.RestaurantActivity" />
         <activity android:name=".producer.ProducerActivity" />
-
-        <service
-            android:name=".MyNavigationService"
-            android:foregroundServiceType="location"></service>
     </application>
 
 </manifest>

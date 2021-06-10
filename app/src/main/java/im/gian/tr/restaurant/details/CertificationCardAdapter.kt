@@ -53,7 +53,6 @@ class CertificationCardAdapter(private val context: Context?) : RecyclerView.Ada
 
         //Image
         val certId = certificationList!![position].id
-        Log.d("debb", certId.toString())
         if(certId != "")
             storage.reference.child("certifications/${certId}.jpg").downloadUrl.addOnSuccessListener {
                 Glide.with(holder.imageViewCertification).load(it).placeholder(R.drawable.restaurant_placeholder).into(holder.imageViewCertification)
