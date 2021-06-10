@@ -34,10 +34,9 @@ class HomeFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
         //Search textview
-        binding.textViewSearch.setAdapter(SuggestionAdapter(context as FragmentActivity, R.layout.suggestion_view, homeViewModel.restaurants.value!!))
         binding.textViewSearch.threshold = 1
         val restaurantsObserver = Observer<List<Restaurant>> {
-            binding.textViewSearch.setAdapter(SuggestionAdapter(context as FragmentActivity, R.layout.suggestion_view, homeViewModel.restaurants.value!!))
+            binding.textViewSearch.setAdapter(SuggestionAdapter(context as FragmentActivity, R.layout.suggestion_view, homeViewModel.restaurants.value!!, homeViewModel.saved.value!!))
         }
         homeViewModel.restaurants.observe(context as FragmentActivity, restaurantsObserver)
 

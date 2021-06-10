@@ -17,7 +17,7 @@ import im.gian.tr.model.Restaurant
 import im.gian.tr.restaurant.RestaurantActivity
 
 
-class SuggestionAdapter(context: Context, private val layoutResource: Int, private val restaurants: List<Restaurant>):
+class SuggestionAdapter(context: Context, private val layoutResource: Int, private val restaurants: List<Restaurant>, private val saved: List<Restaurant>):
     ArrayAdapter<Restaurant>(context, layoutResource, restaurants),
     Filterable {
     private var restaurantList: List<Restaurant> = restaurants
@@ -37,8 +37,8 @@ class SuggestionAdapter(context: Context, private val layoutResource: Int, priva
             val intent = Intent(context, RestaurantActivity::class.java)
             intent.putExtra("restaurant", Gson().toJson(restaurantList[position]))
 
-            //if (restaurantList[position] in savedList!!)
-            //    intent.putExtra("saved", true)
+            if (restaurantList[position] in saved)
+                intent.putExtra("saved", true)
 
             context.startActivity(intent)
         }
