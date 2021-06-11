@@ -20,7 +20,7 @@ permette di conoscere i fornitori dei ristornati, così da poter sostenere picco
 - lista preferiti
 - consultazione menu
 - consulatazione info ristorante
-- possibilità di conoscere produttori e fornitori di un ristorante
+- possibilità di conoscere produttori e fornitori di un ristorante (toccando sugli ingredienti del menu)
 
 ## Account
 Esistono tre tipi di account su TR, **utente**, **ristoratore** e **produttore**
