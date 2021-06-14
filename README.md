@@ -23,7 +23,7 @@ permette di conoscere i fornitori dei ristornati, così da poter sostenere picco
 - possibilità di conoscere produttori e fornitori di un ristorante (toccando sugli ingredienti del menu)
 
 ## Account
-Esistono tre tipi di account su TR, **utente**, **ristoratore** e **produttore**
+Esistono tre tipi di account su TR: **utente**, **ristoratore** e **produttore**.
 
 La differenza fra utenti e ristoratori o produttori è che questi ultimi hanno la possibilità di modificare le informazioni delle loro pagine, 
 che saranno poi visibili agli utenti quando cercano un ristorante o vogliono conoscere il produttore di un ingrediente sul menu.
