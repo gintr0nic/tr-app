@@ -49,9 +49,9 @@ Per loggarsi con uno di questi account è neccessario toccare sul pulsante *Usa 
 ## Backend
 TR usa Firebase per il backend.
 
-Authentication viene utlizzato per consentire agli utenti di registrarsi e loggarsi.
+Authentication viene utilizzato per consentire agli utenti di registrarsi e loggarsi.
 
-Storage viene utlizzato per memorizzare le foto dei ristoranti e produttori.
+Storage viene utilizzato per memorizzare le foto dei ristoranti e produttori.
 
 Firestore Database viene utilizzato per memorizzare:
 - il tipo di utente (utente normale, ristoratore o produttore)
