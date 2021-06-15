@@ -7,7 +7,7 @@ App per informazioni sui ristoranti
 <p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_2.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_6.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_7.png" width="20%"></p>
 
 ## Descrizione
-TR è un'app che ha l'obbiettivo di creare un rete di conoscenze tra consumatori finali, ristoratori, imprese di produzione di materie prime o prodotti trasformati.
+TR è un'app che ha l'obbiettivo di creare una rete di conoscenze tra consumatori finali, ristoratori, imprese di produzione di materie prime o prodotti trasformati.
 
 Infatti oltre a mettere a disposizione le funzioni classiche per la ricerca e la consultazione delle informazioni sui ristoranti,
 permette di conoscere i fornitori dei ristornati, così da poter sostenere piccole e medie imprese e ristoranti che utilizzano materie prime di qualità.
