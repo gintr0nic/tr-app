@@ -66,7 +66,7 @@ Firestore Database viene utilizzato per memorizzare:
 
 ## To Do
 
-- [ ] Possibilità per produttori e ristoratori di registrasi autonomamente (con un setup che li guida nella creazione della loro pagina)
+- [ ] Possibilità per produttori e ristoratori di registrarsi autonomamente (con un setup che li guida nella creazione della loro pagina)
 - [ ] Possibilità per produttori e ristoratori di caricare immagini, modificare il menu, ecc
 - [ ] Login tramite Google o Facebook
 - [ ] Recupero password dimenticata
