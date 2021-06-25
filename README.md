@@ -1,7 +1,7 @@
 <p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/app/src/main/ic_launcher-playstore.png" height=180></p>
 <h1 align="center">TR</h1>
 <h3 align="center">
-App per informazioni sui ristoranti
+Prototipo di app per informazioni sui ristoranti
 </h3>
 
 <p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_2.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_6.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_7.png" width="20%"></p>
