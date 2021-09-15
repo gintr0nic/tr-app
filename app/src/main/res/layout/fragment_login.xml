@@ -18,16 +18,11 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_launcher_foreground"
+            android:layout_marginTop="70dp"
             android:scaleX="1.5"
-            android:scaleY="1.5"/>
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="50dp"
+            android:scaleY="1.5"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_title" />
+            android:src="@drawable/ic_launcher_foreground_green" />
 
         <TextView
             android:id="@+id/textView"
