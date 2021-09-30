@@ -1,6 +1,7 @@
 package im.gian.tr.restaurant.menu
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         //Name
         holder.textViewName.text = menu!![position].name
+        Log.d("MENU", menu!![position].name)
 
         //Ingredients
         holder.recyclerViewIngredients.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -56,6 +58,7 @@ class MenuAdapter(private val context: Context?) : RecyclerView.Adapter<MenuAdap
     //Update certification list when viewmodel data changes
     private val menuObserver = Observer<List<Item>> {
         menu = restaurantViewModel.menu.value
+
         notifyDataSetChanged()
     }
 
