@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentProducerProductsBinding
 import im.gian.tr.producer.ProducerViewModel
-import im.gian.tr.restaurant.menu.MenuAdapter
 
 class ProductsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

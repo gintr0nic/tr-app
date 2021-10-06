@@ -25,10 +25,13 @@
             android:textColor="@color/black"
             android:text="@string/menu" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewMenu"
+        <ExpandableListView
+            android:id="@+id/expandableListMenu"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2dp" />
 
     </LinearLayout>
 </layout>

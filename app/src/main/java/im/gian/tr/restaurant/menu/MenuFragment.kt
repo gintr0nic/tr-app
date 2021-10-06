@@ -11,11 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import im.gian.tr.R
 import im.gian.tr.databinding.FragmentRestaurantMenuBinding
+import im.gian.tr.restaurant.RestaurantActivity
 import im.gian.tr.restaurant.RestaurantViewModel
+import java.util.ArrayList
 
 class MenuFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         val binding = DataBindingUtil.inflate<FragmentRestaurantMenuBinding>(
             inflater, R.layout.fragment_restaurant_menu, container, false)
 
@@ -26,9 +27,18 @@ class MenuFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.restaurantViewModel = restaurantViewModel
 
-        //Menu recyclerview
-        binding.recyclerViewMenu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerViewMenu.adapter = MenuAdapter(context)
+        val listData = HashMap<String, List<String>>()
+        for(item in restaurantViewModel.menu.value!!) {
+            val ingredients: MutableList<String> = mutableListOf()
+
+            for(ingredient in item.ingredients)
+                ingredients.add(ingredient["name"]!!)
+
+            listData[item.name] = ingredients
+        }
+
+        //Menu expandable list
+        binding.expandableListMenu.setAdapter(ExpandableListAdapter(context as FragmentActivity, ArrayList(listData.keys) as List<String>, listData))
 
 
         return binding.root
