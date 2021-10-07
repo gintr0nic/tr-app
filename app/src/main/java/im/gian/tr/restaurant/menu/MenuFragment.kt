@@ -38,7 +38,9 @@ class MenuFragment : Fragment() {
         }
 
         //Menu expandable list
-        binding.expandableListMenu.setAdapter(ExpandableListAdapter(context as FragmentActivity, ArrayList(listData.keys) as List<String>, listData))
+        binding.expandableListMenu.setAdapter(ExpandableListAdapter(context as FragmentActivity,
+            restaurantViewModel.menu.value!!
+        ))
 
 
         return binding.root

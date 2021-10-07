@@ -19,7 +19,11 @@
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/menu_card_view.xml" value="0.23550724637681159" />
         <entry key="app/src/main/res/layout/activity_restaurant.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/fragment_restaurant_menu.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/ingredient_view.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/item_ingredient_view.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/item_title_view.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/menu_card_view.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/product_card_view.xml" value="0.35833333333333334" />
       </map>
     </option>
   </component>
