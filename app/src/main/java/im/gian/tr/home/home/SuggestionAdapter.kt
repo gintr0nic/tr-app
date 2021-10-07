@@ -46,6 +46,10 @@ class SuggestionAdapter(context: Context, private val layoutResource: Int, priva
         val name = view.findViewById<TextView>(R.id.suggestionName)
         name.text = restaurantList[position].name
 
+        //Restaurant name textview
+        val city = view.findViewById<TextView>(R.id.suggestionCity)
+        city.text = restaurantList[position].city
+
         return view
     }
 
