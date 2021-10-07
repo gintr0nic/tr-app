@@ -33,15 +33,15 @@ class ExpandableListAdapter internal constructor(private val context: Context, p
         val producer = getChild(listPosition, expandedListPosition)["producer"]
 
         if (convertView == null) {
-            val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.item_ingredient_view, null)
+                val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                convertView = layoutInflater.inflate(R.layout.item_ingredient_view, null)
+        }
 
-            convertView.setOnClickListener {
-                val intent = Intent(this.context, ProducerActivity::class.java)
-                Log.d("producer: ", producer.toString())
-                intent.putExtra("producer", producer)
-                this.context.startActivity(intent)
-            }
+        convertView!!.setOnClickListener {
+            val intent = Intent(this.context, ProducerActivity::class.java)
+            Log.d("producer: ", producer.toString())
+            intent.putExtra("producer", producer)
+            this.context.startActivity(intent)
         }
 
 
