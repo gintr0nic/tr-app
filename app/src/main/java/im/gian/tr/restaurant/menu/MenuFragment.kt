@@ -13,6 +13,7 @@ import im.gian.tr.R
 import im.gian.tr.databinding.FragmentRestaurantMenuBinding
 import im.gian.tr.restaurant.RestaurantActivity
 import im.gian.tr.restaurant.RestaurantViewModel
+import im.gian.tr.restaurant.menu.NoScrollExpandableListView
 import java.util.ArrayList
 
 class MenuFragment : Fragment() {

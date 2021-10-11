@@ -25,14 +25,15 @@
             android:textColor="@color/black"
             android:text="@string/menu" />
 
-        <ExpandableListView
-            android:id="@+id/expandableListMenu"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="2dp"
-            android:childDivider="@android:color/transparent"/>
+
+            <im.gian.tr.restaurant.menu.NoScrollExpandableListView
+                android:id="@+id/expandableListMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="2dp"
+                android:childDivider="@android:color/transparent" />
 
     </LinearLayout>
 </layout>

@@ -80,7 +80,6 @@ class ExpandableListAdapter internal constructor(private val context: Context, p
         }
 
         val itemNameView = convertView!!.findViewById<TextView>(R.id.itemName)
-        itemNameView.setTypeface(null, Typeface.BOLD)
         itemNameView.text = itemName
 
         return convertView
