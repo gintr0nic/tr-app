@@ -2,6 +2,7 @@ package im.gian.tr.producer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -43,6 +44,7 @@ class ProducerActivity : AppCompatActivity() {
 
                 //Load data
                 producerViewModel.fetchCertifications()
+                producerViewModel.fetchImages()
             }
         }
         producerViewModel.producer.observe(this, producerObserver)
