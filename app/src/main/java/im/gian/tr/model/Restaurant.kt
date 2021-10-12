@@ -10,7 +10,10 @@ data class Restaurant (
     var city: String = "",
     val address: String = "",
     val cellphone: String = "",
+    val facebook: String = "",
+    val instagram: String = "",
     var description: String = "",
+    val website: String = "",
     val certifications: List<String> = listOf(),
     val location: GeoPoint = GeoPoint(0.0,0.0),
     var id: String = ""

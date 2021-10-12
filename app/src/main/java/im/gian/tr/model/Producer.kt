@@ -9,6 +9,11 @@ data class Producer (
     var name: String = "",
     var city: String = "",
     var description: String = "",
+    val facebook: String = "",
+    val instagram: String = "",
+    val cellphone: String = "",
+    val address: String = "",
+    val website: String = "",
     val certifications: List<String> = listOf(),
     val products: List<String> = listOf(),
     var id: String = ""

@@ -5,11 +5,11 @@
 
     <data>
         <variable
-            name="restaurantViewModel"
-            type="im.gian.tr.restaurant.RestaurantViewModel" />
+            name="producerViewModel"
+            type="im.gian.tr.producer.ProducerViewModel" />
         <variable
             name="contacts"
-            type="im.gian.tr.restaurant.contacts.ContactsFragment" />
+            type="im.gian.tr.producer.contacts.ContactsFragment" />
     </data>
 
     <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.city}"/>
+                android:text="@{producerViewModel.producer.city}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +70,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.address}"/>
+                android:text="@{producerViewModel.producer.address}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +94,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.cellphone}"/>
+                android:text="@{producerViewModel.producer.cellphone}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -118,7 +118,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.facebook}"/>
+                android:text="@{producerViewModel.producer.facebook}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -142,7 +142,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.instagram}"/>
+                android:text="@{producerViewModel.producer.instagram}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -166,7 +166,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:text="@{restaurantViewModel.restaurant.website}"/>
+                android:text="@{producerViewModel.producer.website}"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -3,24 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_contacts.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_home.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_instagram.xml" value="0.12129629629629629" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_launcher_foreground_green.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_launcher_foreground_white.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_map.xml" value="0.12129629629629629" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_map_marker.xml" value="0.3828125" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/drawable/ic_website.xml" value="0.12129629629629629" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/activity_intro.xml" value="0.152" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/activity_producer.xml" value="0.25" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/activity_restaurant.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_login.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_producer_contacts.xml" value="0.3625" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_producer_details.xml" value="0.3625" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_producer_products.xml" value="0.25" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_restaurant_contacts.xml" value="0.3625" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_restaurant_details.xml" value="0.3625" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/fragment_restaurant_menu.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/image_card_view.xml" value="0.203125" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/ingredient_view.xml" value="0.23233695652173914" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/item_ingredient_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/item_title_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/layout/menu_card_view.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/gian/Progetti/tr-app-android/app/src/main/res/menu/bottom_bar_menu_producer.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_restaurant.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/fragment_restaurant_menu.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/ingredient_view.xml" value="0.35833333333333334" />

@@ -9,12 +9,18 @@
         android:id="@+id/detailsFragment"
         android:name="im.gian.tr.producer.details.DetailsFragment"
         android:label="@string/details"
-        tools:layout="@layout/fragment_restaurant_details" >
+        tools:layout="@layout/fragment_producer_details" >
     </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="im.gian.tr.producer.products.ProductsFragment"
-        android:label="@string/menu"
-        tools:layout="@layout/fragment_restaurant_menu" >
+        android:label="@string/products"
+        tools:layout="@layout/fragment_producer_products" >
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="im.gian.tr.producer.contacts.ContactsFragment"
+        android:label="@string/contacts"
+        tools:layout="@layout/fragment_producer_contacts" >
     </fragment>
 </navigation>
