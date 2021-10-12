@@ -128,10 +128,18 @@
             android:textSize="18sp"
             android:text="@string/images"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewImages"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:isScrollContainer="false"
+                android:nestedScrollingEnabled="false"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,10 +151,19 @@
             android:textSize="18sp"
             android:text="@string/certifications"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCertifications"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:isScrollContainer="false"
+            android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
 
         <Space
             android:layout_width="match_parent"

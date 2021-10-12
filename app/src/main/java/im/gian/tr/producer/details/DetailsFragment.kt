@@ -42,12 +42,10 @@ class DetailsFragment : Fragment() {
         //Images recyclerview
         binding.recyclerViewImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewImages.adapter = ImageCardAdapter(context)
-        binding.recyclerViewCertifications.isNestedScrollingEnabled = false
 
         //Certifications recyclerview
         binding.recyclerViewCertifications.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewCertifications.adapter = CertificationCardAdapter(context)
-        binding.recyclerViewCertifications.isNestedScrollingEnabled = false
 
         //Edit button name
         binding.buttonEditName.setOnClickListener {
