@@ -4,6 +4,8 @@
 Prototipo di app per informazioni sui ristoranti
 </h3>
 
+**Progetto sviluppato per sostenere l'esame di Programmazione Mobile (Università Politecnica delle Marche, anno accademico 2021/2022)**
+
 <p align="center"><img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_2.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_6.png" width="20%"> <img src="https://github.com/mrgian/tr-app-android/raw/master/images/Screenshot_7.png" width="20%"></p>
 
 ## Descrizione
